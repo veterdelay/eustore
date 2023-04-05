@@ -6,7 +6,7 @@ function cartToTop(){
     let topPosition = $('.header-body-content');
     let bottomPosition = $('.header-bottom-interactive');
 
-    if(screenSize < 768){
+    if(screenSize < 768 || window.innerWidth < 768){
         cart.addClass('small-cart');
         topPosition.append(cart);
         cart.find(bottomPosition).remove();
@@ -15,6 +15,7 @@ function cartToTop(){
         bottomPosition.append(cart);
         cart.find(topPosition).remove();
     }
+
 }
 
 $( document ).ready( cartToTop );
