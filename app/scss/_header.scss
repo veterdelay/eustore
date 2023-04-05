@@ -87,7 +87,7 @@
             @media(max-width:$breakpoint768){
                 height:auto;
                 img{
-                    max-height:45px;
+                    max-height:40px;
                 }
             }
         }
@@ -374,6 +374,16 @@
             }
         }
 
+    }
+    &.small-cart{
+        .cart-interactive{
+            .cart-interactive-title{
+                display:none;
+            }
+            .cart-interactive-numbers{
+                display:none;
+            }
+        }
     }
 }
 
