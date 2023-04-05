@@ -1,0 +1,143 @@
+@font-face {
+    font-family: 'eustoreicons';
+    src:  url('../fonts/eustoreicons.eot?c8suzi');
+    src:  url('../fonts/eustoreicons.eot?c8suzi#iefix') format('embedded-opentype'),
+      url('../fonts/eustoreicons.ttf?c8suzi') format('truetype'),
+      url('../fonts/eustoreicons.woff?c8suzi') format('woff'),
+      url('../fonts/eustoreicons.svg?c8suzi#eustoreicons') format('svg');
+    font-weight: normal;
+    font-style: normal;
+    font-display: block;
+  }
+  
+  [class^="icon-"], [class*=" icon-"] {
+    /* use !important to prevent issues with browser extensions that change fonts */
+    font-family: 'eustoreicons' !important;
+    speak: never;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+  
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+  .icon-arrow-left:before {
+    content: "\e900";
+    color: #fff;
+  }
+  .icon-arrow-right:before {
+    content: "\e901";
+    color: #fff;
+  }
+  .icon-bedside:before {
+    content: "\e902";
+  }
+  .icon-call:before {
+    content: "\e903";
+    color: #06d679;
+  }
+  .icon-cart:before {
+    content: "\e904";
+    color: #fff;
+  }
+  .icon-check:before {
+    content: "\e905";
+    color: #fff;
+  }
+  .icon-close:before {
+    content: "\e906";
+    color: #fff;
+  }
+  .icon-compare:before {
+    content: "\e907";
+    color: #fff;
+  }
+  .icon-compare-line:before {
+    content: "\e908";
+  }
+  .icon-conditioner:before {
+    content: "\e909";
+  }
+  .icon-drill:before {
+    content: "\e90a";
+  }
+  .icon-facebook:before {
+    content: "\e90b";
+    color: #00ba67;
+  }
+  .icon-favorites:before {
+    content: "\e90c";
+    color: #fff;
+  }
+  .icon-favorites-line:before {
+    content: "\e90d";
+  }
+  .icon-garden:before {
+    content: "\e90e";
+  }
+  .icon-geolocation:before {
+    content: "\e90f";
+    color: #06d679;
+  }
+  .icon-hair:before {
+    content: "\e910";
+  }
+  .icon-information:before {
+    content: "\e911";
+  }
+  .icon-instagram:before {
+    content: "\e912";
+    color: #00ba67;
+  }
+  .icon-kettle:before {
+    content: "\e913";
+  }
+  .icon-menu:before {
+    content: "\e914";
+    color: #00ba67;
+  }
+  .icon-orders:before {
+    content: "\e915";
+  }
+  .icon-person:before {
+    content: "\e916";
+    color: #00ba67;
+  }
+  .icon-returns:before {
+    content: "\e917";
+  }
+  .icon-search:before {
+    content: "\e918";
+    color: #fff;
+  }
+  .icon-sort1:before {
+    content: "\e919";
+    color: #02c06b;
+  }
+  .icon-sort2:before {
+    content: "\e91a";
+    color: #8c8c8c;
+  }
+  .icon-speakers:before {
+    content: "\e91b";
+  }
+  .icon-star:before {
+    content: "\e91c";
+    color: #ff5c00;
+  }
+  .icon-time:before {
+    content: "\e91d";
+    color: #06d679;
+  }
+  .icon-twitter:before {
+    content: "\e91e";
+    color: #00ba67;
+  }
+  .icon-washing:before {
+    content: "\e91f";
+  }
+  
