@@ -7,6 +7,7 @@
 $mainColor: #161616;
 $greenColor: #00BA67;
 
+$breakpoint1400: 1399.98 + px;
 $breakpoint1200: 1199.98 + px;
 $breakpoint992: 991.98 + px;
 $breakpoint768: 767.98 + px;
@@ -23,10 +24,11 @@ body{
     font-size:17px;
     line-height:1;
     color:$mainColor;
+    min-height: 100vh;
 }
 
-a{
-    transition: background 0.3s;
+a,button{
+    transition: background 0.3s, color 0.3s;
 }
 
 //container settings
@@ -48,6 +50,55 @@ a{
 
 .main{
     flex:1 1 auto;
+}
+
+///search input header/footer
+
+.search-body{
+    display:flex;
+    .search-body-wrapper{
+        position:relative;
+        width: 100%;
+        .search-body-icon{
+            position: absolute;
+            font-size: 24px;
+            top: 15px;
+            left: 15px;
+        }
+        .search-body-input{
+            border: 1px solid #FFFFFF;
+            border-radius: 5px;
+            max-width: 536px;
+            width: 100%;
+            height:52px;
+            display:flex;
+            align-items: center;
+            padding-left:50px;
+            font-size: 20px;
+            color:#fff;
+            transition: 0.3s;
+            &::placeholder{
+                color:#fff;
+                opacity:0.7;
+            }
+            &:focus{
+                border: 1px solid $greenColor;
+            }
+        }
+    }
+    .search-body-button{
+        background:#06D679;
+        height:52px;
+        font-size: 20px;
+        color:#fff;
+        padding:0px 45px;
+        border-radius: 0px 5px 5px 0px;
+        position:relative;
+        right:5px;
+        &:hover{
+            background: $greenColor;
+        }
+    }
 }
 
 

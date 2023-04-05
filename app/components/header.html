@@ -18,20 +18,46 @@
                     <li class="header-body-menu-item"><a href="#">Доставка та оплата</a></li>
                 </ul>
             </nav>
+            <a class="hide-search" href="#"><i class="icon-search"></i></a>
             <div class="header-body-call">
-                <span class="header-body-call-number">+38 (050) 321 76 87</span>
-                <a class="header-body-call-back" href="#">Зворотний дзвінок</a>
+                <i class="header-body-call-icon icon-call open-call-tab"></i>
+                <span class="header-body-call-number open-call-tab call-hide">+38 (050) 321 76 87</span>
+                <a class="header-body-call-back call-hide" href="#">Зворотний дзвінок</a>
             </div>
             <div class="header-body-interactive">
-                <a class="header-login-panel-link" href="">Увійти до особистого кабінету</a>
-                <div class="header-language-panel">
-                    <img class="language-icon ua" src="/images/icons/ua.svg">
+                <a class="header-login-panel-link-icon open-cabinet-dialog" href=""><i class="icon-person"></i></a>
+                <a class="header-login-panel-link open-cabinet-dialog login-hide-link" href="">Увійти до особистого кабінету</a>
+                <div class="header-language-panel open-language-tab">
+                    <img class="language-icon ua language-hide-icon" src="/images/icons/ua.svg">
                     <span class="language-title">UA</span>
                 </div>
             </div>
         </div>
     </div>
     <div class="header-bottom">
-
+        <div class="header-bottom-body container">
+            <div class="header-catalog">
+                <i class="header-catalog-icon icon-menu"></i>
+                <span class="header-catalog-title">Каталог товарів</span>
+            </div>
+            <div class="header-bottom-search search-body">
+                <div class="search-body-wrapper">
+                    <i class="icon-search search-body-icon"></i>
+                    <input class="search-body-input" type="text" name="search" placeholder="Я шукаю...">
+                </div>
+                <button class="search-body-button">Знайти</button>
+            </div>
+            <div class="header-bottom-interactive">
+                <a href="#" class="header-compare"><i class="icon-compare"></i></a>
+                <a href="#" class="header-favorites"><i class="icon-favorites"></i></a>
+                <div class="header-cart">
+                    <i class="icon-cart header-cart-icon"></i>
+                    <div class="cart-interactive">
+                        <span class="cart-interactive-title">Кошик</span>
+                        <span class="cart-interactive-numbers">Обрати товари</span>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </header>
