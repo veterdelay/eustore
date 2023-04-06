@@ -1,4 +1,4 @@
-//Header cart to top-header
+//Header cart to top-header -- smartphones-
 
 function cartToTop(){
     let cart = $('.header-cart');
@@ -20,3 +20,4 @@ function cartToTop(){
 
 $( document ).ready( cartToTop );
 $( window ).on( "resize", cartToTop );
+
