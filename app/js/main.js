@@ -20,4 +20,3 @@ function cartToTop(){
 
 $( document ).ready( cartToTop );
 $( window ).on( "resize", cartToTop );
-
