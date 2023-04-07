@@ -7,8 +7,8 @@
 
   <div class="wrapper">
 
-    @@include('components/header.html')
-    @@include('components/catalog-home.html')
+    @@include('components/header.html',{"catalog-state":"close", "location":"default"})
+    @@include('components/catalog-default.html')
 
     <main class="main">
       <div style="height:500px;background:red;"></div>

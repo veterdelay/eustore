@@ -7,6 +7,17 @@
         gap:10px;
     }
 
+    &.catalog-default{
+        .catalog-wrapper{
+            position: absolute;
+            height:auto;
+        }
+    }
+    &.catalog-close{
+        .catalog-wrapper{
+            display:none;
+        }
+    }
 }
 
 .catalog-and-question{
