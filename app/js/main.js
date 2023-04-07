@@ -24,9 +24,11 @@ $( window ).on( 'resize', cartToTop );
 //Sticky header and menu
 
 function stickyHeader(){
-    
+
     let stickyElement = $('.sticky-header');
+    let stickyElementHeight = $('.sticky-header').height();
     let stickyElementStart = $('header');
+    let body = $('body');
 
     if($(window).scrollTop() > stickyElementStart.offset().top + stickyElementStart.height()){
         stickyElement.removeClass('sticky-noanimate');
@@ -48,7 +50,7 @@ $( window ).scroll( stickyHeader );
 
 function openCatalog(){
 
-    let catalogWrapper = $('.catalog-default');
+    let catalogWrapper = $('.catalog-header');
     let catalogButton = $('.header-catalog');
 
     catalogWrapper.toggleClass('catalog-close').toggleClass('catalog-open');
@@ -62,7 +64,7 @@ $('.header-catalog').on( 'click', openCatalog );
 
 function closeCatalog(){
 
-    let catalogWrapper = $('.catalog-default');
+    let catalogWrapper = $('.catalog-header');
     let catalogButton = $('.header-catalog');
     let target = event.target;
 

@@ -3,6 +3,9 @@
 .catalog-home-section{
 
     .catalog-body{
+        
+            display:flex;
+            gap:10px;
 
         .catalog-and-question{
             display:flex;
@@ -20,6 +23,27 @@
             border-radius: 15px;;
             position: absolute;
             bottom: 0;
+        }
+
+        .catalog-wrapper{
+
+            height:467px;
+            
+            &::after{
+                content: '';
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                height: 40px;
+                width: 100%;
+                z-index: 1;
+                background: linear-gradient(to bottom,rgba(255,255,255,0) 0,rgba(255,255,255,.67) 66%,#fff 98%,#fff 100%);
+                opacity: 0.8;
+            }
+            &:hover{
+                height: auto;
+            }
         }
 
     }

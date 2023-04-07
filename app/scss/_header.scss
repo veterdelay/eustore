@@ -1,6 +1,7 @@
 .header{
     display:flex;
     flex-direction: column;
+    background:#1F1F1F;
 }
 
 .header-top{
@@ -290,6 +291,7 @@
     .header-bottom-body{
         display:flex;
         align-items: center;
+        position: relative;
 
         .header-catalog{
             width:400px;
@@ -373,20 +375,34 @@
 
     }
     &.sticky-header{
-        transition: all 0.3s;
+        transition: all 0.6s;
     }
     &.sticky-header.sticky{
         @media(min-width:$breakpoint1200){
                 position: fixed;
-                top: -63px;
-                transform: translate3d(0,63px,0);
+                top: -78px;
+                transform: translate3d(0,78px,0);
                 width:100%;
                 left:0;
         }
     }
     &.sticky-header.sticky-noanimate{
         transition: all 0s;
+        
     }
+
+    //catalog header
+    .catalog-header{
+        position: absolute;
+        top: 65px;
+        left:0;
+
+        &.catalog-close{
+            display:none;
+        }
+
+    }
+
 }
 
 .header-cart{
