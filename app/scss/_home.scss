@@ -1,0 +1,53 @@
+//catalog-home and sliders
+
+.catalog-home-section{
+
+    .catalog-body{
+
+        .catalog-and-question{
+            display:flex;
+            flex-direction: column;
+            gap:10px;
+            position: relative;
+            width: 400px;
+            flex-shrink: 0;
+        }
+        
+        .question-block{
+            height:382px;
+            width:400px;
+            background:$greenColor;
+            border-radius: 15px;;
+            position: absolute;
+            bottom: 0;
+        }
+
+    }
+
+    .info-categories-sliders{
+        display: flex;
+        flex-direction: column;
+        margin-top: 10px;
+        gap: 43px;
+        width: 100%;
+    
+        .info-slider-wrapper-test{
+            height:550px;
+            background:$greenColor;
+            width:100%;
+            border-radius: 15px;
+        }
+    
+        .categories-wrapper-test{
+            display:flex;
+            gap:15px;
+            .caetgorie-item{
+                height:256px;
+                width:100%;
+                background:$greenColor;
+                border-radius:15px;
+            }
+        }
+    
+    }
+}
