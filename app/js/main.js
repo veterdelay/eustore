@@ -21,29 +21,18 @@ function cartToTop(){
 $( document ).ready( cartToTop );
 $( window ).on( 'resize', cartToTop );
 
-//Sticky header and menu
+//Catalog block home
 
-function stickyHeader(){
+function formCatalog(){
+    let catalog = $('.first-catalog');
+    let catalogCopy = catalog.clone();
+    let appendParent = $('.catalog-and-question');
 
-    let stickyElement = $('.sticky-header');
-    let stickyElementHeight = $('.sticky-header').height();
-    let stickyElementStart = $('header');
-    let body = $('body');
-
-    if($(window).scrollTop() > stickyElementStart.offset().top + stickyElementStart.height()){
-        stickyElement.removeClass('sticky-noanimate');
-        stickyElement.addClass('sticky');
-    }
-
-    if($(window).scrollTop() < stickyElementStart.offset().top + stickyElementStart.height()){
-        stickyElement.addClass('sticky-noanimate');
-        stickyElement.removeClass('sticky');
-    }
-
+    catalogCopy.addClass('home-catalog-wrapper');
+    catalogCopy.prependTo(appendParent);
 }
 
-$( window ).scroll( stickyHeader );
-
+$( document ).ready( formCatalog );
 
 
 //Open/Close header catalog (static)
@@ -78,3 +67,22 @@ function closeCatalog(){
 }
 
 $( document ).click( closeCatalog );
+
+//Open header catalog effect
+
+$( window ).on('load', function() {
+    let catalogButton = $('.header-catalog');
+    $( '.home-catalog-wrapper' ).hover(function() {
+        catalogButton.toggleClass('catalog-close').toggleClass('catalog-open');
+      });
+});
+
+//Desktop catalog menu
+
+function catalog(){
+    
+}
+
+
+
+
