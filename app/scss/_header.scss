@@ -2,7 +2,7 @@
     display:flex;
     flex-direction: column;
     background:#1F1F1F;
-    z-index:30;
+    z-index:40;
     transition: transform 0.3s;
     max-height:113px;
     &.sticky-header.sticky{
@@ -318,6 +318,8 @@
             flex-shrink: 0;
             height:100%;
             align-items: center;
+            background: #262626;
+            z-index:35;
             cursor: pointer;
             .header-catalog-icon{
                 font-size:24px;
@@ -418,6 +420,21 @@
 
         @media(max-width:$breakpoint1200){
             display:none;
+        }
+
+        .catalog-open-background{
+            position: fixed;
+            width: 100%;
+            height: 120vh;
+            background: #1f1f1f;
+            z-index: 30;
+            top: 0;
+            left: 0;
+            opacity: 0;
+            transition: all 0.3s;
+            &.background-open{
+                opacity:0.2;
+            }
         }
 
     }

@@ -21,6 +21,8 @@ function cartToTop(){
 $( document ).ready( cartToTop );
 $( window ).on( 'resize', cartToTop );
 
+/////////////CATALOG NAVIGATION
+
 //Catalog block home
 
 function formCatalog(){
@@ -41,9 +43,15 @@ function openCatalog(){
 
     let catalogWrapper = $('.catalog-header');
     let catalogButton = $('.header-catalog');
+    let background = $('.catalog-open-background');
+    let submenuItem = $('.submenu-item:first-child');
 
     catalogWrapper.toggleClass('catalog-close').toggleClass('catalog-open');
     catalogButton.toggleClass('catalog-close').toggleClass('catalog-open');
+
+    setTimeout(function() {
+        background.toggleClass('background-open');
+      }, 10);
     
 }
 
@@ -55,33 +63,39 @@ function closeCatalog(){
 
     let catalogWrapper = $('.catalog-header');
     let catalogButton = $('.header-catalog');
-    let target = event.target;
+    let background = $('.catalog-open-background');
 
-    if(catalogWrapper.hasClass('catalog-open') && !catalogButton.is(target) && !catalogButton.children().is(target)){
-        if ( !catalogWrapper.is(target) && catalogWrapper.has(target).length === 0 ) {
-            catalogWrapper.removeClass('catalog-open').addClass('catalog-close');
-            catalogButton.removeClass('catalog-open').addClass('catalog-close');
-        }
-    }
+
+    catalogWrapper.removeClass('catalog-open').addClass('catalog-close');
+    catalogButton.removeClass('catalog-open').addClass('catalog-close');
+    background.removeClass('background-open');
+
 
 }
 
-$( document ).click( closeCatalog );
+$( '.catalog-open-background' ).click( closeCatalog );
 
 //Open header catalog effect
 
 $( window ).on('load', function() {
     let catalogButton = $('.header-catalog');
-    $( '.home-catalog-wrapper' ).hover(function() {
+    let homeCatalogWrapper = $('.home-catalog-wrapper');
+    $( '.home-catalog-wrapper ul' ).hover(function() {
         catalogButton.toggleClass('catalog-close').toggleClass('catalog-open');
+        homeCatalogWrapper.toggleClass('home-catalog-open');
       });
 });
 
-//Desktop catalog menu
+//Open submenu border-radius
 
-function catalog(){
-    
-}
+$( window ).on('load', function() {
+    let catalogWrapper = $('.catalog-wrapper');
+    $( '.submenu-item' ).hover(function() {
+        catalogWrapper.toggleClass('sub-catalog-open');
+      });
+});
+
+
 
 
 

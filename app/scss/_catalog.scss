@@ -8,10 +8,15 @@
     background: #fff;
     border-radius: 0px 0px 15px 15px;
     padding:36px 0px;
-    overflow: hidden;
     flex-shrink: 0;
     z-index:5;
     transition: all 0.3s;
+    z-index:35;
+    
+    &.sub-catalog-open{
+        border-radius: 0px 0px 0px 15px;
+    }
+
 }
 
 .catalog-menu{
@@ -33,26 +38,53 @@
                     margin-right:20px;
                     font-size:22px;
                 }
-                &::before{
-                    font-family: eustoreicons;
-                    font-size: 12px;
-                    content: "\e901";
-                    color: #3E3E3E;
-                    right: 18px;
-                    position: absolute;
-                    transition: 0.3s all;
-                }
             }
             &:hover{
                 background: rgba(226, 226, 226, 0.44);
                 a{
                     color:$greenColor;
+                }
+            }
+
+            &.submenu-item{
+                a{
                     &::before{
-                        right:24px;
-                        color:$greenColor;
+                        font-family: eustoreicons;
+                        font-size: 12px;
+                        content: "\e901";
+                        color: #3E3E3E;
+                        right: 18px;
+                        position: absolute;
+                        transition: 0.3s all;
+                    }
+                }
+                &:hover{
+                    a{
+                        &::before{
+                            right:24px;
+                            color:$greenColor;
+                        }
+                    }
+                    .catalog-menu-sub-wrapper{
+                        display:flex;
                     }
                 }
             }
+
+            //sub
+
+            .catalog-menu-sub-wrapper{
+                display:none;
+                width:529px;
+                height:100%;
+                position:absolute;
+                background:#fff;
+                left:400px;
+                top:0;
+                border-radius: 0px 0px 15px 0px;
+                padding: 36px;
+            }
+
         }
     }
 }
