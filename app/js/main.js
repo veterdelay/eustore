@@ -37,6 +37,39 @@ function formCatalog(){
 $( document ).ready( formCatalog );
 
 
+
+//Check menu submenuheight
+
+function checkHeight(parent,typeheight,padding){
+
+    let submenu = (parent).find('.catalog-menu-sub-wrapper');
+    let wrapper = (parent).find('.catalog-menu-body');
+    let startWrapperHeight = wrapper.outerHeight()+padding*2;
+    let wrapperOutline = (parent).find('.catalog-wrapper');
+    let menuHeight = 0;
+    let type;
+    
+    if(typeheight == 'height'){
+        type = 'height';
+    }else{
+        type = 'min-height';
+    }
+
+    $( submenu ).each(function() {
+        if($(this).outerHeight() > menuHeight){
+            menuHeight = $(this).outerHeight();
+        }
+    });
+
+    if(menuHeight > startWrapperHeight){
+        wrapperOutline.css(type,menuHeight);
+    }
+
+    console.log(menuHeight);
+    console.log(startWrapperHeight);
+
+}
+
 //Open/Close header catalog (static)
 
 function openCatalog(){
@@ -44,10 +77,11 @@ function openCatalog(){
     let catalogWrapper = $('.catalog-header');
     let catalogButton = $('.header-catalog');
     let background = $('.catalog-open-background');
-    let submenuItem = $('.submenu-item:first-child');
 
     catalogWrapper.toggleClass('catalog-close').toggleClass('catalog-open');
     catalogButton.toggleClass('catalog-close').toggleClass('catalog-open');
+
+    checkHeight(catalogWrapper,'height',36);
 
     setTimeout(function() {
         background.toggleClass('background-open');
@@ -70,7 +104,6 @@ function closeCatalog(){
     catalogButton.removeClass('catalog-open').addClass('catalog-close');
     background.removeClass('background-open');
 
-
 }
 
 $( '.catalog-open-background' ).click( closeCatalog );
@@ -86,6 +119,28 @@ $( window ).on('load', function() {
       });
 });
 
+//check home catalog size
+
+$( document ).ready(function() {
+
+    let catalogWrapper = $('.catalog-home-section');
+
+    setTimeout(function() {
+        checkHeight(catalogWrapper,'height',36);
+      }, 50);
+
+
+});
+
+$( window ).on('resize', function() {
+
+    let catalogWrapper = $('.catalog-home-section');
+
+    checkHeight(catalogWrapper,'height',36);
+
+});
+
+
 //Open submenu border-radius
 
 $( window ).on('load', function() {
@@ -94,9 +149,5 @@ $( window ).on('load', function() {
         catalogWrapper.toggleClass('sub-catalog-open');
       });
 });
-
-
-
-
 
 

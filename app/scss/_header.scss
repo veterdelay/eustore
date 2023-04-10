@@ -425,15 +425,70 @@
         .catalog-open-background{
             position: fixed;
             width: 100%;
-            height: 120vh;
+            height: calc(100vh + 113px);
             background: #1f1f1f;
             z-index: 30;
             top: 0;
             left: 0;
             opacity: 0;
-            transition: all 0.3s;
+            transition: opacity 0.3s;
             &.background-open{
                 opacity:0.2;
+            }
+        }
+
+        .catalog-wrapper{
+
+            .catalog-menu{
+                max-height: calc(78vh - 72px);
+                overflow-y: auto;
+                scrollbar-width: thin;
+                scrollbar-color: $greenColor white;
+                direction: rtl;
+
+                .catalog-menu-body{
+                    direction: ltr;
+                }
+
+                &::-webkit-scrollbar {
+                    width: 4px;
+                }
+                
+                &::-webkit-scrollbar-track {
+                    background: transparent;
+                }
+                
+                &::-webkit-scrollbar-thumb {
+                    background-color: $greenColor;
+                    border-radius: 20px;
+                    border: 2px solid transparent;
+                }
+            }
+
+            .sub-menu-body{
+                max-height: calc(78vh - 72px);
+                overflow: auto;
+                scrollbar-width: thin;
+                scrollbar-color: $greenColor  white;
+
+                &::-webkit-scrollbar {
+                    width: 4px;
+                }
+                
+                &::-webkit-scrollbar-track {
+                    background: transparent;
+                }
+                
+                &::-webkit-scrollbar-thumb {
+                    background-color: $greenColor;
+                    border-radius: 20px;
+                    border: 2px solid transparent;
+                }
+            }
+
+            .catalog-menu-sub-wrapper{
+                min-height: 100%;
+                height:auto;
             }
         }
 
