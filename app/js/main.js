@@ -143,7 +143,7 @@ $( window ).on('resize', function() {
 
 //Open submenu border-radius
 
-$( window ).on('load', function() {
+$( document ).ready(function() {
     let catalogWrapper = $('.catalog-wrapper');
     $( '.submenu-item' ).hover(function() {
         catalogWrapper.toggleClass('sub-catalog-open');
