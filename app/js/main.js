@@ -110,13 +110,16 @@ $( '.catalog-open-background' ).click( closeCatalog );
 
 //Open header catalog effect
 
-$( window ).on('load', function() {
+$( document ).ready(function() {
+
     let catalogButton = $('.header-catalog');
     let homeCatalogWrapper = $('.home-catalog-wrapper');
+    
     $( '.home-catalog-wrapper ul' ).hover(function() {
         catalogButton.toggleClass('catalog-close').toggleClass('catalog-open');
         homeCatalogWrapper.toggleClass('home-catalog-open');
       });
+
 });
 
 //check home catalog size
@@ -144,10 +147,13 @@ $( window ).on('resize', function() {
 //Open submenu border-radius
 
 $( document ).ready(function() {
+
     let catalogWrapper = $('.catalog-wrapper');
+
     $( '.submenu-item' ).hover(function() {
         catalogWrapper.toggleClass('sub-catalog-open');
       });
+
 });
 
 
