@@ -75,7 +75,7 @@ function openCatalog(){
     let bodyWrapper = catalogWrapper.find('.catalog-wrapper');
     let catalogButton = $('.header-catalog');
     let background = $('.catalog-open-background');
-    let firstChild = catalogWrapper.find('.submenu-item:first-child');
+    let firstChild = catalogWrapper.find('.submenu-item').first();
 
     catalogWrapper.toggleClass('catalog-close').toggleClass('catalog-open');
     catalogButton.toggleClass('catalog-close').toggleClass('catalog-open');
@@ -88,7 +88,7 @@ function openCatalog(){
         background.toggleClass('background-open');
       }, 10);
 
-      if(firstChild){
+      if(firstChild.length > 0){
         firstChild.addClass('submenu-item-active');
         bodyWrapper.addClass('sub-catalog-open');
       }
