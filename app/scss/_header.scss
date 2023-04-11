@@ -463,6 +463,23 @@
                     border-radius: 20px;
                     border: 2px solid transparent;
                 }
+
+
+                .submenu-item-active{
+                        background: rgba(226, 226, 226, 0.44);
+                        .catalog-menu-body-link{
+                            color:$greenColor;
+                            &::before{
+                                right:24px;
+                                color:$greenColor;
+                            }
+                        }
+                        .catalog-menu-sub-wrapper{
+                            display:flex;
+                        }
+                }
+
+
             }
 
             .sub-menu-body{
