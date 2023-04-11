@@ -88,8 +88,10 @@ function openCatalog(){
         background.toggleClass('background-open');
       }, 10);
 
-      firstChild.addClass('submenu-item-active');
-      bodyWrapper.addClass('sub-catalog-open');
+      if(firstChild){
+        firstChild.addClass('submenu-item-active');
+        bodyWrapper.addClass('sub-catalog-open');
+      }
     
 }
 
