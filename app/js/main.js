@@ -162,8 +162,15 @@ $( document ).ready(function() {
       });
 
       $('.submenu-item').on('mouseleave', function() {
-        catalogWrapper.removeClass('sub-catalog-open');
+             catalogWrapper.removeClass('sub-catalog-open');
         });
+
+        $('.submenu-item').on('mouseleave', function() {
+            if(($(this).hasClass('submenu-item-active'))){
+                $(this).removeClass('submenu-item-active');
+            }
+       });
+
 
       $( '.catalog-menu-item:not(.submenu-item)' ).hover(function() {
             $(this).siblings().removeClass('submenu-item-active');
