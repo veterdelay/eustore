@@ -133,6 +133,72 @@
             }
         }
         .hide-search{
+            cursor: pointer;
+            position: relative;
+            .icon-search-over{
+                z-index: 15;
+                position: relative;
+                transition: all 0.3s;
+            }
+            .hide-search-wrapper{
+                opacity:0;
+                position: absolute;
+                top: -8px;
+                right: 0px;
+                width: 0px;
+                transition: all 0.3s;
+                z-index:5;
+                .search-body-wrapper{
+                    .search-body-input{
+                        height: 45px;
+                        padding-left: 5px;
+                        font-size: 15px;
+                        background: #f9f9f9;
+                        color:$mainColor;
+                        border: none;
+                        &::placeholder{
+                            opacity:0;
+                            color: $mainColor;
+                        }
+                    }
+                }
+            }
+            &.hide-search-active{
+                .icon-search-over{
+                    background: #06d679;
+                    padding: 8px;
+                    border-radius: 0px 5px 5px 0px;
+                    cursor: pointer;
+                    &::before{
+                        color:#fff;
+                    }
+                    &:hover{
+                        background: #00ba67;
+                    }
+                }
+                .hide-search-wrapper{
+                    width: 500px;
+                    opacity:1;
+                    .search-body-wrapper{
+                        .search-body-input{
+                            border: 1px solid #fff;
+                            &::placeholder{
+                                opacity:1;
+                            }
+                            &:focus{
+                                border: 1px solid $greenColor;
+                            }
+                        }
+                    }
+                }
+                &:hover{
+                    .icon-search-over{
+                        &::before{
+                            color:#fff;
+                        }
+                    } 
+                }
+            }
             .icon-search-over{
                 font-size:29px;
                 &::before{
