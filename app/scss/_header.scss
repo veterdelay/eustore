@@ -389,6 +389,23 @@
                 }
             }
             .header-compare,.header-favorites{
+                position: relative;
+                .item-number{
+                    display:none;
+                }
+                &.compare-active, &.favorites-active{
+                    .item-number{
+                        position: absolute;
+                        font-size: 8px;
+                        color:#fff;
+                        background: $greenColor;
+                        padding: 3px 6px;
+                        border-radius: 60px;
+                        display:block;
+                        top:0;
+                        right:-6px;
+                    }
+                }
                 &:hover{
                     .icon-compare,.icon-favorites{
                         &:before{
@@ -522,6 +539,7 @@
     display:flex;
     gap:6px;
     cursor: pointer;
+    position:relative;
     .header-cart-icon{
         font-size:29px;
         transition: 0.3s;
@@ -543,6 +561,9 @@
             padding: 3px 6px;
             border: 1px solid $greenColor;
             border-radius: 60px;
+            .cart-interactive-text-active{
+                display:none;
+            }
         }
     }
     &:hover{
@@ -554,12 +575,48 @@
 
     }
     &.small-cart{
+        gap:0px;
         .cart-interactive{
+            position: relative;
+            right: 5px;
+            top: -5px;
             .cart-interactive-title{
                 display:none;
             }
             .cart-interactive-numbers{
                 display:none;
+                border: 1px solid #fff;
+                background: #fff;
+                color: $greenColor;
+                .cart-interactive-text-active{
+                    #cart-item-title{
+                        display:none;
+                    }
+                }
+            }
+        }
+    }
+    &.header-cart-active{
+        .header-cart-icon{
+            &:before{
+                color:$greenColor;
+            }
+        }
+        .cart-interactive{
+            .cart-interactive-numbers{
+                .cart-interactive-text{
+                    display:none;
+                }
+                .cart-interactive-text-active{
+                    display:block;
+                }
+            }
+        }
+        &.small-cart{
+            .cart-interactive{
+                .cart-interactive-numbers{
+                    display:block;
+                }
             }
         }
     }

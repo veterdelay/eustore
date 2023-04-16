@@ -63,13 +63,29 @@
                 <button class="search-body-button">Знайти</button>
             </div>
             <div class="header-bottom-interactive">
-                <a href="#" class="header-compare"><i class="icon-compare"></i></a>
-                <a href="#" class="header-favorites"><i class="icon-favorites"></i></a>
-                <div class="header-cart">
+                <!-- .compare-active if there is an item -->
+                <a href="#" class="header-compare compare-active">
+                    <i class="icon-compare"></i>
+                    <span class="item-number">2</span>
+                </a>
+                <!-- .favorites-active if there is an item -->
+                <a href="#" class="header-favorites favorites-active">
+                    <i class="icon-favorites"></i>
+                    <span class="item-number">2</span>
+                </a>
+                <div class="header-cart header-cart-active">
+                    <!-- .header-cart-active if there is an item in the cart -->
                     <i class="icon-cart header-cart-icon"></i>
                     <div class="cart-interactive">
                         <span class="cart-interactive-title">Кошик</span>
-                        <span class="cart-interactive-numbers"><span class="cart-interactive-text">Обрати товари</span>
+                        <span class="cart-interactive-numbers">
+                            <!-- display none if cart active -->
+                            <span class="cart-interactive-text">Обрати товари</span>
+                            <!-- /////////////////////////// -->
+                            <span class="cart-interactive-text-active">
+                                <span id="cart-item-number">2</span>
+                                <span id="cart-item-title">товари</span>
+                            </span>
                         </span>
                     </div>
                 </div>
