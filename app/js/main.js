@@ -102,13 +102,18 @@ $('.header-catalog').on( 'click', openCatalog );
 function closeCatalog(){
 
     let catalogWrapper = $('.catalog-header');
+    let catalogWrapperContainer = catalogWrapper.find('.catalog-wrapper');
     let catalogButton = $('.header-catalog');
     let background = $('.catalog-open-background');
 
-
-    catalogWrapper.removeClass('catalog-open').addClass('catalog-close');
-    catalogButton.removeClass('catalog-open').addClass('catalog-close');
+    catalogWrapperContainer.css('display','none');
     background.removeClass('background-open');
+
+    setTimeout(function() {
+        catalogWrapper.removeClass('catalog-open').addClass('catalog-close');
+        catalogWrapperContainer.css('display','block');
+        catalogButton.removeClass('catalog-open').addClass('catalog-close');
+      }, 300);
 
 }
 
@@ -180,6 +185,57 @@ $( document ).ready(function() {
 
 });
 
+//burger open
+
+function burgerOpen(event){
+
+    event.preventDefault();
+
+    let burger = $('.burger');
+    let burgerWrapper = $('.burger-wrapper');
+    let background = $('.burger-open-background');
+
+    burger.addClass('burger-open');
+
+    setTimeout(function() {
+        burgerWrapper.addClass('burger-wrapper-open');
+        background.addClass('burger-open-background-open');
+      }, 10);
+
+}
+
+$('.header-open-burger').click( burgerOpen );
+
+//close burger
+
+function burgerClose(){
+
+    let burger = $('.burger');
+    let burgerWrapper = $('.burger-wrapper');
+    let background = $('.burger-open-background');
+
+    burgerWrapper.removeClass('burger-wrapper-open');
+        background.removeClass('burger-open-background-open');
+
+    setTimeout(function() {
+        burger.removeClass('burger-open');
+      }, 300);
+
+}
+
+$('.burger-open-background').click( burgerClose );
+
+
+
+//GetCatalogItems & append to Burger
+
+function getCatalogItems(){
+    catalog = $('.catalog-menu').find('.catalog-header');
+    let newCatalog = catalog.clone();
+    console.log(newCatalog);
+}
+
+$( document ).ready( getCatalogItems );
 
 
 

@@ -564,5 +564,51 @@
     }
 }
 
+.burger{
+    display:none;
+    position: fixed;
+    width: 400px;
+    max-width: 100%;
+    height: calc(100vh + 113px);
+    z-index: 35;
+    top: 0;
+    @media(max-width:$breakpoint768){
+        height:100%;
+    }
+
+    &.burger-open{
+        display:block;
+    }
+
+    .burger-open-background{
+        position: fixed;
+        width: 100%;
+        height: calc(100vh + 113px);
+        background: #1f1f1f;
+        z-index: 15;
+        top: 0;
+        left: 0;
+        opacity: 0;
+        transition: opacity 0.3s;
+        &.burger-open-background-open{
+            opacity:0.2;
+        }
+    }
+
+    .burger-wrapper{
+        height:100%;
+        width:100%;
+        overflow-x: auto;
+        background: #fff;
+        transition: 0.3s;
+        transform: translateX(-100%);
+        z-index: 25;
+        position: relative;
+        &.burger-wrapper-open{
+            transform: translateX(0px);
+        }
+    }
+}
+
 
 
