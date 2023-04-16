@@ -185,6 +185,29 @@ $( document ).ready(function() {
 
 });
 
+
+//getscrollbarWidth
+
+function getScrollbarWidth(){
+
+    let div = document.createElement('div');
+
+    div.style.overflowY = 'scroll';
+    div.style.width = '50px';
+    div.style.height = '50px';
+
+
+    document.body.append(div);
+    let scrollWidth = div.offsetWidth - div.clientWidth;
+
+    div.remove();
+
+    return scrollWidth;
+
+}
+
+getScrollbarWidth();
+
 //burger open
 
 function burgerOpen(event){
@@ -194,8 +217,13 @@ function burgerOpen(event){
     let burger = $('.burger');
     let burgerWrapper = $('.burger-wrapper');
     let background = $('.burger-open-background');
+    let body = $('body');
+    let header = $('.sticky-header-smartphone');
+
 
     burger.addClass('burger-open');
+    body.css({'overflow':'hidden','padding-right':getScrollbarWidth()+'px'});
+    header.css({'width':'calc(100% - '+getScrollbarWidth()+'px)', 'margin-left':'auto'});
 
     setTimeout(function() {
         burgerWrapper.addClass('burger-wrapper-open');
@@ -213,9 +241,13 @@ function burgerClose(){
     let burger = $('.burger');
     let burgerWrapper = $('.burger-wrapper');
     let background = $('.burger-open-background');
+    let body = $('body');
+    let header = $('.sticky-header-smartphone');
 
     burgerWrapper.removeClass('burger-wrapper-open');
-        background.removeClass('burger-open-background-open');
+    background.removeClass('burger-open-background-open');
+    body.css({'overflow':'visible','padding-right':'0px'});
+    header.css({'width':'calc(100% - 0px)','margin-left':'0px'});
 
     setTimeout(function() {
         burger.removeClass('burger-open');
