@@ -166,7 +166,7 @@
                     }
                 }
             }
-            &.hide-search-active{
+            &.active{
                 .icon-search-over{
                     background: #06d679;
                     padding: 0px 8px;
@@ -701,8 +701,8 @@
 .infowindow{
     position:absolute;
     display:none;
-    width:200px;
-    height:200px;
+    width:auto;
+    height:auto;
     top:calc(100% + 15px);
     right:0;
     background:#fff;
@@ -712,6 +712,27 @@
     &.active{
         @media(min-width:$breakpoint768){
             display:block;
+        }
+    }
+}
+
+.call-infowindow{
+    padding:10px;
+    .call-infowindow-list{
+        .call-infowindow-item{
+            .call-infowindow-link{
+                padding: 13px 0px;
+                color: #3e3e3e;
+                font-weight: 500;
+                font-size: 15px;
+                i{
+                    font-size:15px;
+                    margin-right:5px;
+                    &:before{
+                        color:#3e3e3e;
+                    }
+                }
+            }
         }
     }
 }

@@ -267,13 +267,15 @@ $('.burger-open-background').click( burgerClose );
 
 // $( document ).ready( getCatalogItems );
 
+///////////////search and infowindows
+
 //Open hide search
 
 function openSearch(){
     
     let hideSearch = $('.hide-search');
 
-    hideSearch.addClass('hide-search-active');
+    hideSearch.addClass('active');
 
 }
 
@@ -320,15 +322,29 @@ function closeCart(ev,parent,activeClass,buttonClass){
         parent.removeClass(activeClass); 
     }
 
-    console.log(ev.target);
+}
+
+function closeElementsIfScroll(){
+    
+    let element = $('.hide-on-scroll');
+
+    if(element.hasClass('active')){
+        element.removeClass('active');
+    }
 
 }
 
 
 $(document).click( function(e){
-	closeElement(e,$('.hide-search-active'),'hide-search-active',$('.hide-search'));
+	closeElement(e,$('.hide-search.active'),'active',$('.hide-search'));
     closeElement(e,$('.infowindow.call-infowindow.active'),'active',$('.open-call-tab'));
     closeElement(e,$('.infowindow.language-infowindow.active'),'active',$('.open-language-tab'));
     closeCart(e,$('.infowindow.cart-infowindow.active'),'active',$('.open-cart-tab'));
 });
+
+$( window ).scroll(function() {
+    closeElementsIfScroll();
+});
+
+
 
