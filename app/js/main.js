@@ -20,6 +20,7 @@ function cartToTop(){
 
 $( document ).ready( cartToTop );
 $( window ).resize( cartToTop );
+$(window).on( 'orientationchange', cartToTop );
 
 /////////////CATALOG NAVIGATION
 
