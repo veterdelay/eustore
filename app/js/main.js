@@ -19,7 +19,7 @@ function cartToTop(){
 }
 
 $( document ).ready( cartToTop );
-$( window ).on( 'resize', cartToTop );
+$( window ).resize( cartToTop );
 
 /////////////CATALOG NAVIGATION
 
