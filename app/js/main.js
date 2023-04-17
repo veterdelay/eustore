@@ -6,7 +6,7 @@ function cartToTop(){
     let topPosition = $('.header-body-content');
     let bottomPosition = $('.header-bottom-interactive');
 
-    if(screenSize < 767.98 || window.innerWidth < 767.98){
+    if(screenSize < 767.98){
         cart.addClass('small-cart');
         topPosition.append(cart);
         cart.find(bottomPosition).remove();
