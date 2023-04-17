@@ -2,11 +2,10 @@
 
 function cartToTop(){
     let cart = $('.header-cart');
-    let screenSize = screen.width;
     let topPosition = $('.header-body-content');
     let bottomPosition = $('.header-bottom-interactive');
 
-    if(screenSize < 767.98 || window.innerWidth < 767.98){
+    if(window.innerWidth < 767.98){
         cart.addClass('small-cart');
         topPosition.append(cart);
         cart.find(bottomPosition).remove();
@@ -20,7 +19,6 @@ function cartToTop(){
 
 $( document ).ready( cartToTop );
 $( window ).resize( cartToTop );
-$(window).on( 'orientationchange', cartToTop );
 
 /////////////CATALOG NAVIGATION
 
