@@ -105,6 +105,18 @@ a,button{
     }
 }
 
+hr{
+    background: $mainColor;
+    height:1px;
+    width:100%;
+}
+
+.hr-classic{
+    background: linear-gradient(to right, #FFF, #939393, #FFF);
+    height: 1px;
+    width:100%;
+}
+
 
 
 

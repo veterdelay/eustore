@@ -283,21 +283,23 @@ $('.hide-search').click( openSearch );
 
 //Open infowindow
 
-function infoWindowOpen(className){
+function infoWindowOpen(className,buttonName){
 
     let infowindow = $(className);
-
     infowindow.toggleClass('active');
 
-
+    $( buttonName ).each(function() {
+        $( this ).toggleClass('active');
+      });
+      
 }
 
 $('.open-call-tab').click( function(){
-	infoWindowOpen('.call-infowindow');
+	infoWindowOpen('.call-infowindow','.open-call-tab');
 });
 
 $('.open-language-tab').click( function(){
-	infoWindowOpen('.language-infowindow');
+	infoWindowOpen('.language-infowindow','.open-language-tab');
 });
 
 $('.open-cart-tab').click( function(e){
@@ -310,16 +312,11 @@ $('.open-cart-tab').click( function(e){
 
 function closeElement(ev,parent,activeClass,buttonClass){
 
-    if ( !buttonClass.is(ev.target) && !parent.is(ev.target) && parent.has(ev.target).length === 0 ) {
-        parent.removeClass(activeClass); 
-    }
-
-}
-
-function closeCart(ev,parent,activeClass,buttonClass){
-
-    if ( buttonClass.has(ev.target).length === 0 && !buttonClass.not('cart-infowindow').is(ev.target) && !parent.is(ev.target) && parent.has(ev.target).length === 0 ) {
-        parent.removeClass(activeClass); 
+    if ( $(buttonClass).has(ev.target).length === 0 && !$(buttonClass).not(parent).is(ev.target) && !$(parent).is(ev.target) && $(parent).has(ev.target).length === 0 ) {
+        $(parent).removeClass(activeClass); 
+        $(buttonClass).each(function() {
+            $(this).removeClass('active');
+        });
     }
 
 }
@@ -330,19 +327,24 @@ function closeElementsIfScroll(){
 
     if(element.hasClass('active')){
         element.removeClass('active');
+        element.siblings().removeClass('active');
+        element.parent().removeClass('active');
     }
 
 }
 
-
 $(document).click( function(e){
-	closeElement(e,$('.hide-search.active'),'active',$('.hide-search'));
-    closeElement(e,$('.infowindow.call-infowindow.active'),'active',$('.open-call-tab'));
-    closeElement(e,$('.infowindow.language-infowindow.active'),'active',$('.open-language-tab'));
-    closeCart(e,$('.infowindow.cart-infowindow.active'),'active',$('.open-cart-tab'));
+	closeElement(e,'.hide-search.active','active','.hide-search');
+    closeElement(e,'.infowindow.call-infowindow.active','active','.open-call-tab');
+    closeElement(e,'.infowindow.language-infowindow.active','active','.open-language-tab');
+    closeElement(e,'.infowindow.cart-infowindow.active','active','.open-cart-tab');
 });
 
 $( window ).scroll(function() {
+    closeElementsIfScroll();
+});
+
+$( window ).resize(function() {
     closeElementsIfScroll();
 });
 
