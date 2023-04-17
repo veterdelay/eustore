@@ -279,14 +279,56 @@ function openSearch(){
 
 $('.hide-search').click( openSearch );
 
-//close elements if click != element parent 
+//Open infowindow
 
-function closeElement(ev,parent,activeClass){
-    if ( !parent.is(ev.target) && parent.has(ev.target).length === 0 ) {
-		parent.removeClass(activeClass); 
-	}
+function infoWindowOpen(className){
+
+    let infowindow = $(className);
+
+    infowindow.toggleClass('active');
+
+
 }
 
-$(document).click( function(e){
-	closeElement(e,$('.hide-search-active'),'hide-search-active');	
+$('.open-call-tab').click( function(){
+	infoWindowOpen('.call-infowindow');
 });
+
+$('.open-language-tab').click( function(){
+	infoWindowOpen('.language-infowindow');
+});
+
+$('.open-cart-tab').click( function(e){
+    if(!$('.cart-infowindow').is(e.target)){
+        infoWindowOpen('.cart-infowindow');
+    }
+});
+
+//close elements if click != element parent 
+
+function closeElement(ev,parent,activeClass,buttonClass){
+
+    if ( !buttonClass.is(ev.target) && !parent.is(ev.target) && parent.has(ev.target).length === 0 ) {
+        parent.removeClass(activeClass); 
+    }
+
+}
+
+function closeCart(ev,parent,activeClass,buttonClass){
+
+    if ( buttonClass.has(ev.target).length === 0 && !buttonClass.not('cart-infowindow').is(ev.target) && !parent.is(ev.target) && parent.has(ev.target).length === 0 ) {
+        parent.removeClass(activeClass); 
+    }
+
+    console.log(ev.target);
+
+}
+
+
+$(document).click( function(e){
+	closeElement(e,$('.hide-search-active'),'hide-search-active',$('.hide-search'));
+    closeElement(e,$('.infowindow.call-infowindow.active'),'active',$('.open-call-tab'));
+    closeElement(e,$('.infowindow.language-infowindow.active'),'active',$('.open-language-tab'));
+    closeCart(e,$('.infowindow.cart-infowindow.active'),'active',$('.open-cart-tab'));
+});
+
