@@ -212,8 +212,6 @@ function getScrollbarWidth(){
 
 }
 
-getScrollbarWidth();
-
 //burger open
 
 function burgerOpen(event){
@@ -427,6 +425,93 @@ $( window ).scroll(function() {
 $( window ).resize(function() {
     closeElementsIfScroll();
 });
+
+//modal
+
+function modalOpen(modalId){
+
+    let modal = $(modalId);
+    let modalBackground = modal.find('.modal-body-background');
+    let modalWrapper = modal.find('.modal-wrapper');
+    let body = $('body');
+    let header = $('.sticky-header-smartphone');
+
+    modal.addClass('active');
+
+    body.css({'overflow':'hidden','padding-right':getScrollbarWidth()+'px'});
+
+    if(window.innerWidth < 767.98){
+        header.css({'width':'calc(100% - '+getScrollbarWidth()+'px)', 'margin-left':'auto'});
+    }
+
+    setTimeout(function() {
+        modalBackground.addClass('active');
+        modalWrapper.addClass('active');
+    }, 10);
+}
+
+$('.open-cart-modal').click( function(){
+	modalOpen('#cartmodal');
+});
+
+$('.open-cart-tablet-modal').click( function(){
+    if(window.innerWidth < 991.98){
+        modalOpen('#cartmodal');
+    }
+});
+
+//close modals
+
+function closeModal(modalId){
+
+    let modal = $('#'+modalId);
+    let modalWrapper = modal.find('.modal-wrapper');
+    let modalBackground = modal.find('.modal-body-background');
+    let body = $('body');
+    let header = $('.sticky-header-smartphone');
+
+    modalBackground.removeClass('active');
+    modalWrapper.removeClass('active');
+
+    
+
+    setTimeout(function() {
+        modal.removeClass('active');
+        body.css({'overflow':'visible','padding-right':'0px'});
+        if(window.innerWidth < 767.98){
+            header.css({'width':'calc(100% - 0px)','margin-left':'0px'});
+        }
+    }, 300);
+
+}
+
+$('.modal-body-background').click( function(){
+    closeModal($(this).parent('.modal').attr('id'));
+});
+
+$('.modal-close').click( function(){
+    closeModal($(this).closest('.modal').attr('id'));
+});
+
+function checkHeaderStickySize(){
+
+    let modals = $('.modal');
+    let header = $('.sticky-header-smartphone');
+
+    $( modals ).each(function() {
+        if($(this).hasClass('active')){
+            if(window.innerWidth < 767.98){
+                header.css({'width':'calc(100% - '+getScrollbarWidth()+'px)', 'margin-left':'auto'});
+            }
+        }else{
+            header.css({'width':'calc(100% - 0px)','margin-left':'0px'});
+        }
+      });
+}
+
+$( window ).resize( checkHeaderStickySize );
+
+
 
 
 

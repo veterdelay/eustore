@@ -132,6 +132,168 @@ hr{
     }
 }
 
+//modals
+
+.modal{
+    height:100%;
+    width:100%;
+    position: fixed;
+    top:0;
+    left:0;
+    z-index:200;
+    display:none;
+    .modal-body-background{
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        background: #1f1f1f;
+        z-index: 30;
+        top: 0;
+        left: 0;
+        opacity: 0;
+        transition: all 0.3s;
+        &.active{
+            opacity:0.2;
+        }
+    }
+    &.active{
+        display:block;
+    }
+    .modal-content{
+        height: 100%;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        overflow: hidden auto;
+        padding: 60px 15px;
+        .modal-wrapper{
+            max-width: 1100px;
+            width: 100%;
+            height: fit-content;
+            z-index: 999;
+            position: relative;
+            margin: auto;
+            transform: translateY(25px);
+            opacity: 0;
+            transition: all 0.3s;
+            &.active{
+                opacity:1;
+                transform: translateY(0px);
+            }
+
+            .modal-header{
+                border-radius: 15px 15px 0px 0px;
+                background: linear-gradient(90.26deg, #02C26C 4.2%, #08DF7F 87.06%);
+                min-height:80px;
+                width:100%;
+                display:flex;
+                justify-content: space-between;
+                align-items: center;
+                padding:0px 15px;
+                @media(max-width:$breakpoint768){
+                    min-height:60px;
+                }
+                .modal-title-body{
+                    display:flex;
+                    gap:10px;
+                    align-items: center;
+                    .modal-title-icon{
+                        font-size:30px;
+                        @media(max-width:$breakpoint992){
+                            font-size:24px;
+                        }
+                        @media(max-width:$breakpoint768){
+                            font-size:20px;
+                        }
+                        &:before{
+                            color:#fff;
+                        }
+                    }
+                    .modal-title{
+                        font-weight: 500;
+                        font-size: 30px;
+                        color:#fff;
+                        @media(max-width:$breakpoint992){
+                            font-size:24px;
+                        }
+                        @media(max-width:$breakpoint768){
+                            font-size:20px;
+                        }
+                    }
+                }
+                .modal-close{
+                    padding-left: 10px;
+                    cursor:pointer;
+                    .modal-icon-close{
+                        font-size:30px;
+                        @media(max-width:$breakpoint992){
+                            font-size:24px;
+                        }
+                        @media(max-width:$breakpoint768){
+                            font-size:20px;
+                        }
+                    }
+                }
+            }
+            .modal-body{
+                background: #fff;
+                min-height:80px;
+                width:100%;
+                border-radius: 0px 0px 15px 15px;
+                padding:40px 15px;
+            }
+
+        }
+    }
+}
+
+//cart-modal
+
+#cartmodal{
+
+        .cart-active-wrapper{
+            
+        }
+
+        .cart-noactive-wrapper{
+            display:flex;
+            flex-direction: column;
+            gap:30px;
+            max-width:480px;
+            width:100%;
+            margin:auto;
+            .noactive-title{
+                font-weight: 600;
+                font-size: 25px;
+                color:$mainColor;
+                text-align: center;
+            }
+            .noactive-text{
+                font-size: 18px;
+                font-weight: 500;
+                text-align: center;
+            }
+            .noactive-modal-cart-button{
+                cursor: pointer;
+                width:100%;
+                height:70px;
+                @media(max-width:$breakpoint768){
+                    height:60px;
+                }
+            }
+        }
+
+    &.cart-modal-active{
+        .cart-noactive-wrapper{
+            display:none;
+        }
+        .cart-active-wrapper{
+            display:flex;
+        }
+    }
+
+}
+
 
 
 
