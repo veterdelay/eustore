@@ -760,7 +760,19 @@
         &.infowindow-wrapper-active{
             opacity:1;
             transform: translateY(0px);
+            animation-name: fade;
+            animation-duration: 0.3s;
         }
+        @keyframes fade {
+            from {
+                transform: translateY(25px);
+                opacity: 0;
+            }
+            to {
+                opacity:1;
+                transform: translateY(0px);
+            }
+          }
     }
 }
 

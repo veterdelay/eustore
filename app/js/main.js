@@ -305,12 +305,10 @@ function infoWindowStatus(className,buttonName){
           }, 300);
     }else{
             infowindow.addClass('active');
+            wrapper.addClass('infowindow-wrapper-active');
             $( buttonName ).each(function() {
                 $( this ).addClass('active');
             });
-            setTimeout(function() {
-                wrapper.addClass('infowindow-wrapper-active');
-              }, 10);
     }
       
 }
@@ -358,6 +356,7 @@ function closeSearchElement(ev,parent,activeClass,buttonClass){
         $(parent).removeClass(activeClass); 
         $(buttonClass).each(function() {
             $(this).removeClass('active');
+            
         });
 
     }
@@ -370,13 +369,15 @@ function closeInfoWindowElement(ev,parent,activeClass,buttonClass){
 
     if ( $(buttonClass).has(ev.target).length === 0 && !$(buttonClass).not(parent).is(ev.target) && !$(parent).is(ev.target) && $(parent).has(ev.target).length === 0 ) {
 
-        wrapper.removeClass('infowindow-wrapper-active');
-        $(buttonClass).each(function() {
-            $(this).removeClass('active');
-        });
-        setTimeout(function() {
-            $(parent).removeClass(activeClass); 
-          }, 300);
+        if($(parent).hasClass('active')){
+            wrapper.removeClass('infowindow-wrapper-active');
+            $(buttonClass).each(function() {
+                $(this).removeClass('active');
+            });
+            setTimeout(function() {
+                $(parent).removeClass(activeClass); 
+              }, 300);
+        }
 
     }
 
@@ -398,12 +399,15 @@ function closeElementsIfScroll(){
                 element.removeClass('active');
               }, 300);
         }
+
     }else{
+
         if(element.hasClass('active')){
             element.removeClass('active');
             element.siblings().removeClass('active');
             element.parent().removeClass('active');
         }
+        
     }
 
 
