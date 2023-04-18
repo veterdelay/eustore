@@ -290,8 +290,19 @@ function infoWindowOpen(className,buttonName){
 
     $( buttonName ).each(function() {
         $( this ).toggleClass('active');
-      });
+    });
       
+}
+
+function forceCloseElement(className,buttonName){
+
+    let infowindow = $(className);
+    infowindow.removeClass('active');
+
+    $( buttonName ).each(function() {
+        $( this ).removeClass('active');
+    });
+    
 }
 
 $('.open-call-tab').click( function(){
@@ -303,10 +314,18 @@ $('.open-language-tab').click( function(){
 });
 
 $('.open-cart-tab').click( function(e){
-    if(!$('.cart-infowindow').is(e.target)){
-        infoWindowOpen('.cart-infowindow');
+    if(!$('.cart-infowindow').is(e.target) && $('.cart-infowindow').has(e.target).length === 0){
+        infoWindowOpen('.cart-infowindow','.open-cart-tab');
     }
 });
+
+$('.close-cart-infowindow').click( function(e){
+    forceCloseElement('.cart-infowindow','.open-cart-tab');
+});
+
+
+
+
 
 //close elements if click != element parent 
 
