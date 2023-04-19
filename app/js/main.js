@@ -485,8 +485,10 @@ function closeModal(modalId){
 
 }
 
-$('.modal-body-background').click( function(){
-    closeModal($(this).parent('.modal').attr('id'));
+$('.modal-content').click( function(e){
+    if($('.modal-wrapper').parent($(this)).has(e.target).length === 0){
+        closeModal($(this).parent('.modal').attr('id')); 
+    }
 });
 
 $('.modal-close').click( function(){
