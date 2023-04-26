@@ -20,7 +20,11 @@ function cartToTop(){
 $( document ).ready( cartToTop );
 $( window ).resize( cartToTop );
 
-/////////////CATALOG NAVIGATION
+///////////////////////////////////////////////CATALOG NAVIGATION
+
+///-----------------------------
+
+////////////////////////////////////////////////////////////////
 
 //Catalog block home
 
@@ -261,6 +265,12 @@ function burgerClose(){
 
 $('.burger-open-background').click( burgerClose );
 
+///////////////////////////////////////////////
+
+///-----------------------------
+
+////////////////////////////////////////////////////////////////CATALOG NAVIGATION
+
 
 // //GetCatalogItems & append to Burger
 
@@ -285,6 +295,12 @@ function openSearch(){
 }
 
 $('.hide-search').click( openSearch );
+
+///////////////////////////////////////////////INFOWINDOWS
+
+///-----------------------------
+
+////////////////////////////////////////////////////////////////
 
 //Open infowindow
 
@@ -426,7 +442,17 @@ $( window ).resize(function() {
     closeElementsIfScroll();
 });
 
-//modal
+///////////////////////////////////////////////
+
+///-----------------------------
+
+////////////////////////////////////////////////////////////////INFOWINDOWS
+
+///////////////////////////////////////////////MODALS
+
+///-----------------------------
+
+////////////////////////////////////////////////////////////////
 
 function modalOpen(modalId){
 
@@ -495,6 +521,12 @@ $('.modal-close').click( function(){
     closeModal($(this).closest('.modal').attr('id'));
 });
 
+///////////////////////////////////////////////
+
+///-----------------------------
+
+////////////////////////////////////////////////////////////////MODALS
+
 function checkHeaderStickySize(){
 
     let modals = $('.modal');
@@ -512,6 +544,38 @@ function checkHeaderStickySize(){
 }
 
 $( window ).resize( checkHeaderStickySize );
+
+///////////////////////////////////////////////FORM-CONTROL
+
+///-----------------------------
+
+////////////////////////////////////////////////////////////////
+
+//one-click-order-form-control
+
+
+$(document).ready(function(){
+    $('.one-click-order-number').inputmask({
+        mask: "+380 (99) 999-99-99",
+        showMaskOnHover: false,
+        oncomplete: function(){ 
+            $('.one-click-order-button').removeAttr('disabled');
+        }
+    }); 
+});
+
+$('.one-click-order-number').on('input keyup', function() {
+    let inputVal = $(this).val().replace(/[^0-9]/g, "");
+
+    if (inputVal.length < 12){
+        $('.one-click-order-button').attr("disabled", "true");
+    }
+
+});
+
+
+
+
 
 
 

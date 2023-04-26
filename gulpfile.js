@@ -11,6 +11,7 @@ const clean = require('gulp-clean');
 function scripts(){
     return src([
         'node_modules/jquery/dist/jquery.js',
+        'node_modules/inputmask/dist/jquery.inputmask.min.js',
         'app/js/*.js',
         '!app/js/main.min.js'
     ])

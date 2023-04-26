@@ -17,6 +17,7 @@
     "gulp-file-include": "^2.3.0",
     "gulp-sass": "^5.1.0",
     "gulp-uglify-es": "^3.0.0",
+    "inputmask": "^5.0.8",
     "jquery": "^3.6.4",
     "sass": "^1.60.0"
   }
