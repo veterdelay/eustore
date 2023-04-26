@@ -298,6 +298,7 @@
                 font-size: 15px;
                 color:#fff;
                 line-height:1.4;
+                cursor: pointer;
                 &:hover{
                     color:$greenColor;
                 }
@@ -341,6 +342,7 @@
                 }
             }
             .header-login-panel-link-icon{
+                cursor: pointer;
                 @media(min-width:$breakpoint1400){
                     display:none;
                 }   

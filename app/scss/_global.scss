@@ -795,6 +795,15 @@ hr{
 
 }
 
+//cabinet-modal
+
+#cabinetmodal{
+
+    
+
+}
+
+
 //quantity input
 
 .product-quantity{
@@ -815,6 +824,7 @@ hr{
         border-left:1px solid #939393;
         cursor: pointer;
         transition: 0.3s;
+        user-select: none;
         &:hover{
             background: #E7E7E7;
         }
@@ -829,6 +839,12 @@ hr{
         align-items: center;
         justify-content: center;
         text-align: center;
+        -moz-appearance: textfield;
+        &::-webkit-outer-spin-button,
+        &::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
     }
     .product-quantity-minus{
         color:$greenColor;
@@ -842,6 +858,7 @@ hr{
         border-right:1px solid #939393;
         cursor: pointer;
         transition: 0.3s;
+        user-select: none;
         &:hover{
             background: #E7E7E7;
         }

@@ -486,6 +486,10 @@ $('.open-cart-tablet-modal').click( function(){
     }
 });
 
+$('.open-cabinet-dialog').click( function(){
+	modalOpen('#cabinetmodal');
+});
+
 //close modals
 
 function closeModal(modalId){
@@ -556,7 +560,7 @@ $( window ).resize( checkHeaderStickySize );
 
 $(document).ready(function(){
     $('.one-click-order-number').inputmask({
-        mask: "+380 (99) 999-99-99",
+        mask: "+38 (999) 999-99-99",
         showMaskOnHover: false,
         oncomplete: function(){ 
             $('.one-click-order-button').removeAttr('disabled');
@@ -573,9 +577,29 @@ $('.one-click-order-number').on('input keyup', function() {
 
 });
 
+//quantity-form-control
 
+$('.product-quantity-plus').click( function(){
+    $(this).prev().val(+$(this).prev().val() + 1);
+});
 
+$('.product-quantity-minus').click( function(){
+    if ($(this).next().val() > 1) {
+        $(this).next().val(+$(this).next().val() - 1);
+    }
+});
 
+$('.product-quantity-value').focusout(function(){
+    if($(this).val() == '' || $(this).val() < 1){
+        $(this).val(1);
+    }
+});
+
+///////////////////////////////////////////////
+
+///-----------------------------
+
+////////////////////////////////////////////////////////////////FORM-CONTROL
 
 
 

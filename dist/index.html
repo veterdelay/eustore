@@ -66,8 +66,8 @@
                 </div>
             </div>
             <div class="header-body-interactive">
-                <a class="header-login-panel-link-icon open-cabinet-dialog" href=""><i class="icon-person-over"></i></a>
-                <a class="header-login-panel-link open-cabinet-dialog login-hide-link" href="">Увійти до особистого кабінету</a>
+                <a class="header-login-panel-link-icon open-cabinet-dialog"><i class="icon-person-over"></i></a>
+                <a class="header-login-panel-link open-cabinet-dialog login-hide-link">Увійти до особистого кабінету</a>
                 <div class="header-language-panel open-language-tab">
                     <img class="language-icon ua language-hide-icon" src="/images/icons/ua.svg">
                     <span class="language-title">UA</span>
@@ -412,7 +412,7 @@
                                         <span class="cart-product-info-label">Кількість:</span>
                                         <div class="product-quantity cart-product-quantity">
                                             <div class="product-quantity-minus">-</div>
-                                            <input type="text" class="product-quantity-value" value="1">
+                                            <input type="number" class="product-quantity-value" min="1" value="1">
                                             <div class="product-quantity-plus">+</div>
                                         </div>
                                     </div>
@@ -439,7 +439,7 @@
                                         <span class="cart-product-info-label">Кількість:</span>
                                         <div class="product-quantity cart-product-quantity">
                                             <div class="product-quantity-minus">-</div>
-                                            <input type="text" class="product-quantity-value" value="1">
+                                            <input type="number" class="product-quantity-value" min="1" value="1">
                                             <div class="product-quantity-plus">+</div>
                                         </div>
                                     </div>
@@ -466,7 +466,7 @@
                                         <span class="cart-product-info-label">Кількість:</span>
                                         <div class="product-quantity cart-product-quantity">
                                             <div class="product-quantity-minus">-</div>
-                                            <input type="text" class="product-quantity-value" value="1">
+                                            <input type="number" class="product-quantity-value" min="1" value="1">
                                             <div class="product-quantity-plus">+</div>
                                         </div>
                                     </div>
@@ -487,7 +487,7 @@
                     <div class="cart-order-details">
                         <div class="cart-one-click-order">
                             <span class="one-click-order-title">Оформити в один клік</span>
-                            <input type="text" class="form-control one-click-order-number validate validate-phone" name="phone" placeholder="Ваш телефон">
+                            <input type="text" class="form-control one-click-order-number" name="phone" placeholder="Ваш телефон">
                             <button class="button one-click-order-button" type="submit" disabled="true">Купити в один клік</button>
                         </div>
                         <div class="cart-order-info">
@@ -507,6 +507,24 @@
                     <hr class="hr-classic">
                     <a class="noactive-modal-cart-button button modal-close">Продовжити покупки</a>
                 </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="cabinetmodal" class="modal">
+    <div class="modal-body-background"></div>
+    <div class="modal-content">
+        <div class="modal-wrapper">
+            <div class="modal-header">
+                <div class="modal-title-body">
+                    <i class="modal-title-icon icon-person-over"></i>
+                    <span class="modal-title">Вхід в особистий кабінет</span>
+                </div>
+                <a class="modal-close"><i class="modal-icon-close icon-close"></i></a>
+            </div>
+            <div class="modal-body cart-modal-body">
+                login form
             </div>
         </div>
     </div>
