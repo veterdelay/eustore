@@ -394,8 +394,8 @@
 
 .header-bottom{
     min-height:78px;
+    height:78px;
     background: #262626;
-    height:auto;
     display: flex;
     align-items: center;
     .header-bottom-body{
@@ -450,6 +450,10 @@
                             color:$greenColor;
                         }
                     }
+                }
+                @media(max-width:$breakpoint768){
+                    width:100%;
+                    flex-shrink: 1;
                 }
         }
 
@@ -559,7 +563,7 @@
         }
 
         .catalog-wrapper{
-
+            transition: all 0.3s;
             .catalog-menu{
                 max-height: calc(78vh - 72px);
                 overflow-y: auto;
@@ -644,14 +648,26 @@
                 min-height:100%;
                 border-radius:0px;
                 padding:0px;
+                transform: translateX(-100%);
+            }
+
+            &.catalog-open{
+                display:block;
+                @media(max-width:$breakpoint1200){
+                    display:block;
+                    transform: translateX(0px);
+                }
+            }
+            &.catalog-close{
+                display:none;
+                @media(max-width:$breakpoint1200){
+                    display:block;
+                    transform: translateX(-100%);
+                }
             }
 
         }
 
-    }
-
-    @media(min-width:$breakpoint768){
-        height:78px;
     }
 
 }

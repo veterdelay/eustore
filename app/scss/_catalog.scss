@@ -57,15 +57,17 @@
                         transition: 0.3s all;
                     }
                 }
-                &:hover{
-                    .catalog-menu-body-link{
-                        &::before{
-                            right:24px;
-                            color:$greenColor;
+                @media(min-width:$breakpoint1200){
+                    &:hover{
+                        .catalog-menu-body-link{
+                            &::before{
+                                right:24px;
+                                color:$greenColor;
+                            }
                         }
-                    }
-                    .catalog-menu-sub-wrapper{
-                        display:flex;
+                        .catalog-menu-sub-wrapper{
+                            display:flex;
+                        }
                     }
                 }
             }

@@ -84,34 +84,52 @@ function catalogStatus(){
     let catalogWrapperContainer = catalogWrapper.find('.catalog-wrapper');
     let catalogButton = $('.header-catalog');
     let background = $('.catalog-open-background');
+    let backgroundBurger = $('.burger-open-background');
     let firstChild = catalogWrapper.find('.submenu-item').first();
+
     if(catalogWrapper.hasClass('catalog-open')){
+
             background.removeClass('background-open');
-            catalogWrapperContainer.css('display','none');
+            catalogWrapperContainer.removeClass('catalog-open').addClass('catalog-close');
             catalogButton.removeClass('catalog-open').addClass('catalog-close');
+
+            if(window.innerWidth < 1199.98){
+                backgroundBurger.css('display','block');
+                burgerClose(event);
+            }
+
           setTimeout(function() {
             checkHeight(catalogWrapper,'height',36);
             headerParent.removeClass('header-catalog-open').addClass('header-catalog-close');
             catalogWrapper.removeClass('catalog-open').addClass('catalog-close');
-            catalogWrapperContainer.css('display','block');
+            catalogWrapperContainer.removeClass('catalog-open').addClass('catalog-close');
           }, 300);
+
     }else{
+
+        if(window.innerWidth < 1199.98){
+            backgroundBurger.css('display','none');
+            burgerOpen(event);
+        }
+
         headerParent.removeClass('header-catalog-close').addClass('header-catalog-open');
         catalogWrapper.removeClass('catalog-close').addClass('catalog-open');
         catalogButton.removeClass('catalog-close').addClass('catalog-open');
         checkHeight(catalogWrapper,'height',36);
-        if(firstChild.length > 0){
+        if(firstChild.length > 0 && window.innerWidth > 1199.98){
             firstChild.addClass('submenu-item-active');
             bodyWrapper.addClass('sub-catalog-open');
         }
         setTimeout(function() {
             background.addClass('background-open');
+            catalogWrapperContainer.removeClass('catalog-close').addClass('catalog-open');
           }, 10);
     }
     
 }
 
 $('.header-catalog').on( 'click', catalogStatus );
+
 
 //Close header catalog 
 
@@ -122,20 +140,70 @@ function closeCatalog(){
     let catalogWrapperContainer = catalogWrapper.find('.catalog-wrapper');
     let catalogButton = $('.header-catalog');
     let background = $('.catalog-open-background');
+    let backgroundBurger = $('.burger-open-background');
 
-    headerParent.removeClass('header-catalog-open').addClass('header-catalog-close');
-    catalogWrapperContainer.css('display','none');
+    if(window.innerWidth < 1199.98){
+        backgroundBurger.css('display','block');
+        burgerClose(event);
+    }
+
+    catalogWrapperContainer.removeClass('catalog-open').addClass('catalog-close');
     background.removeClass('background-open');
     catalogButton.removeClass('catalog-open').addClass('catalog-close');
     checkHeight(catalogWrapper,'height',36);
     setTimeout(function() {
         catalogWrapper.removeClass('catalog-open').addClass('catalog-close');
-        catalogWrapperContainer.css('display','block');
+        headerParent.removeClass('header-catalog-open').addClass('header-catalog-close');
       }, 300);
 
 }
 
 $( '.catalog-open-background' ).click( closeCatalog );
+
+
+//change catalog status on burger
+
+function burgerCatalogStatus(){
+
+    let headerParent = $('.header');
+    let catalogWrapper = $('.catalog-header');
+    let catalogWrapperContainer = catalogWrapper.find('.catalog-wrapper');
+    let catalogButton = $('.header-catalog');
+    let background = $('.catalog-open-background');
+    let backgroundBurger = $('.burger-open-background');
+
+    if(catalogWrapper.hasClass('catalog-open')){
+
+
+        if(window.innerWidth < 1199.98){
+            backgroundBurger.css('display','block');
+        }
+        headerParent.removeClass('header-catalog-open').addClass('header-catalog-close');
+        catalogWrapper.removeClass('catalog-open').addClass('catalog-close');
+        catalogButton.removeClass('catalog-open').addClass('catalog-close');
+        checkHeight(catalogWrapper,'height',36);
+        background.removeClass('background-open');
+        catalogWrapperContainer.removeClass('catalog-open').addClass('catalog-close');
+
+    }else{
+
+        if(window.innerWidth < 1199.98){
+            backgroundBurger.css('display','none');
+        }
+        headerParent.removeClass('header-catalog-close').addClass('header-catalog-open');
+        background.addClass('background-open');
+        catalogWrapperContainer.removeClass('catalog-close').addClass('catalog-open');
+        catalogWrapper.removeClass('catalog-close').addClass('catalog-open');
+        catalogButton.removeClass('catalog-close').addClass('catalog-open');
+        checkHeight(catalogWrapper,'height',36);
+        
+    }
+
+}
+
+$( '.burger-open-catalog' ).click( burgerCatalogStatus );
+$( '.burger-close-catalog' ).click( burgerCatalogStatus );
+
 
 //Open header catalog effect
 
@@ -161,14 +229,6 @@ $( document ).ready(function() {
         checkHeight(catalogWrapper,'height',36);
       }, 50);
 
-
-});
-
-$( window ).on('resize', function() {
-
-    let catalogWrapper = $('.catalog-home-section');
-
-    closeCatalog();
 
 });
 
@@ -271,28 +331,12 @@ function burgerClose(){
 
 $('.burger-open-background').click( burgerClose );
 
-$( window ).on('resize', function() {
-
-    burgerClose();
-
-});
-
 ///////////////////////////////////////////////
 
 ///-----------------------------
 
 ////////////////////////////////////////////////////////////////CATALOG NAVIGATION
 
-
-// //GetCatalogItems & append to Burger
-
-// function getCatalogItems(){
-//     catalog = $('.catalog-menu').find('.catalog-header');
-//     let newCatalog = catalog.clone();
-//     console.log(newCatalog);
-// }
-
-// $( document ).ready( getCatalogItems );
 
 ///////////////search and infowindows
 
