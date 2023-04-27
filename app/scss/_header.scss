@@ -591,6 +591,7 @@
 
 
                 .submenu-item-active{
+                    @media(min-width:$breakpoint1200){
                         background: rgba(226, 226, 226, 0.44);
                         .catalog-menu-body-link{
                             color:$greenColor;
@@ -602,6 +603,8 @@
                         .catalog-menu-sub-wrapper{
                             display:flex;
                         }
+                    }
+
                 }
 
                 @media(max-width:$breakpoint1200){
