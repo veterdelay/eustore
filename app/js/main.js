@@ -51,6 +51,7 @@ function checkHeight(parent,typeheight,padding){
     let wrapperOutline = (parent).find('.catalog-wrapper');
     let menuHeight = 0;
     let type;
+
     
     if(typeheight == 'height'){
         type = 'height';
@@ -58,19 +59,19 @@ function checkHeight(parent,typeheight,padding){
         type = 'min-height';
     }
 
+    wrapperOutline.css(type,'auto');
+
     $( submenu ).each(function() {
         if($(this).outerHeight() > menuHeight){
             menuHeight = $(this).outerHeight();
         }
     });
 
-    if(window.innerWidth > 1199.98){
-        if(menuHeight > startWrapperHeight){
-            wrapperOutline.css(type,menuHeight);
-        }
-    }else{
-        wrapperOutline.css(type,'100%');
+    if(menuHeight > startWrapperHeight){
+        wrapperOutline.css(type,menuHeight);
     }
+
+    console.log(menuHeight);
 
 }
 
@@ -99,11 +100,11 @@ function catalogStatus(){
             }
 
           setTimeout(function() {
-            checkHeight(catalogWrapper,'height',36);
             headerParent.removeClass('header-catalog-open').addClass('header-catalog-close');
             catalogWrapper.removeClass('catalog-open').addClass('catalog-close');
             catalogWrapperContainer.removeClass('catalog-open').addClass('catalog-close');
           }, 300);
+
 
     }else{
 
@@ -115,15 +116,18 @@ function catalogStatus(){
         headerParent.removeClass('header-catalog-close').addClass('header-catalog-open');
         catalogWrapper.removeClass('catalog-close').addClass('catalog-open');
         catalogButton.removeClass('catalog-close').addClass('catalog-open');
-        checkHeight(catalogWrapper,'height',36);
+
         if(firstChild.length > 0 && window.innerWidth > 1199.98){
             firstChild.addClass('submenu-item-active');
             bodyWrapper.addClass('sub-catalog-open');
         }
+
         setTimeout(function() {
             background.addClass('background-open');
             catalogWrapperContainer.removeClass('catalog-close').addClass('catalog-open');
+            checkHeight(catalogWrapper,'height',36);
           }, 10);
+
     }
     
 }
@@ -142,6 +146,7 @@ function closeCatalog(){
     let background = $('.catalog-open-background');
     let backgroundBurger = $('.burger-open-background');
 
+
     if(window.innerWidth < 1199.98){
         backgroundBurger.css('display','block');
         burgerClose(event);
@@ -150,7 +155,7 @@ function closeCatalog(){
     catalogWrapperContainer.removeClass('catalog-open').addClass('catalog-close');
     background.removeClass('background-open');
     catalogButton.removeClass('catalog-open').addClass('catalog-close');
-    checkHeight(catalogWrapper,'height',36);
+    
     setTimeout(function() {
         catalogWrapper.removeClass('catalog-open').addClass('catalog-close');
         headerParent.removeClass('header-catalog-open').addClass('header-catalog-close');
@@ -179,9 +184,9 @@ function burgerCatalogStatus(){
             backgroundBurger.css('display','block');
         }
         headerParent.removeClass('header-catalog-open').addClass('header-catalog-close');
+
         catalogWrapper.removeClass('catalog-open').addClass('catalog-close');
         catalogButton.removeClass('catalog-open').addClass('catalog-close');
-        checkHeight(catalogWrapper,'height',36);
         background.removeClass('background-open');
         catalogWrapperContainer.removeClass('catalog-open').addClass('catalog-close');
 
@@ -195,7 +200,6 @@ function burgerCatalogStatus(){
         catalogWrapperContainer.removeClass('catalog-close').addClass('catalog-open');
         catalogWrapper.removeClass('catalog-close').addClass('catalog-open');
         catalogButton.removeClass('catalog-close').addClass('catalog-open');
-        checkHeight(catalogWrapper,'height',36);
         
     }
 
@@ -269,6 +273,15 @@ $( document ).ready(function() {
         checkHeight(catalogWrapper,'height',36);
       }, 50);
 
+});
+
+$( window ).resize(function() {
+
+    let catalogWrapper = $('.catalog-home-section');
+    let catalogHeaderWrapper = $('.catalog-header');
+
+    checkHeight(catalogWrapper,'height',36);
+    checkHeight(catalogHeaderWrapper,'height',36);
 
 });
 
