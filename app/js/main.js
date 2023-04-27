@@ -71,8 +71,6 @@ function checkHeight(parent,typeheight,padding){
         wrapperOutline.css(type,menuHeight);
     }
 
-    console.log(menuHeight);
-
 }
 
 //Open/Close header catalog (static)
