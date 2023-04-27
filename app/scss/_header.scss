@@ -3,19 +3,17 @@
     flex-direction: column;
     background:#1F1F1F;
     transition: transform 0.3s;
-    max-height:113px;
     &.sticky-header.sticky{
         @media(min-width:$breakpoint768){
             position: sticky;
             top: -113px;
             width:100%;
             left:0;
-            margin-bottom: 78px;
         }
     }
     @media(max-width:$breakpoint768){
         padding-top: 75px;
-        margin-bottom: 50px;
+        position: relative;
     }
     &.header-catalog-close{
         z-index:40;

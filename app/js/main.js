@@ -222,14 +222,14 @@ $( window ).resize(function() {
         if(window.innerWidth > 1199.98){
             burgerWrapper.removeClass('burger-wrapper-open');
             background.removeClass('burger-open-background-open');
-            body.css({'overflow':'visible','padding-right':'0px'});
+            body.removeClass('body-hidden').css('padding-right','0px');
             header.css({'width':'calc(100% - 0px)','margin-left':'0px'});
             burger.removeClass('burger-open');
         }else{
             burger.addClass('burger-open');
             burgerWrapper.addClass('burger-wrapper-open');
             background.addClass('burger-open-background-open');
-            body.css({'overflow':'hidden','padding-right':getScrollbarWidth()+'px'});
+            body.addClass('body-hidden').css('padding-right',getScrollbarWidth()+'px');
             header.css({'width':'calc(100% - '+getScrollbarWidth()+'px)', 'margin-left':'auto'});
         }
     }
@@ -238,7 +238,7 @@ $( window ).resize(function() {
         if(window.innerWidth > 1199.98){
             burgerWrapper.removeClass('burger-wrapper-open');
             background.removeClass('burger-open-background-open');
-            body.css({'overflow':'visible','padding-right':'0px'});
+            body.removeClass('body-hidden').css('padding-right','0px');
             header.css({'width':'calc(100% - 0px)','margin-left':'0px'});
             burger.removeClass('burger-open');
         }
@@ -349,7 +349,7 @@ function burgerOpen(event){
 
 
     burger.addClass('burger-open');
-    body.css({'overflow':'hidden','padding-right':getScrollbarWidth()+'px'});
+    body.addClass('body-hidden').css('padding-right',getScrollbarWidth()+'px');
     header.css({'width':'calc(100% - '+getScrollbarWidth()+'px)', 'margin-left':'auto'});
 
     setTimeout(function() {
@@ -371,7 +371,7 @@ function burgerClose(){
 
     burgerWrapper.removeClass('burger-wrapper-open');
     background.removeClass('burger-open-background-open');
-    body.css({'overflow':'visible','padding-right':'0px'});
+    body.removeClass('body-hidden').css('padding-right','0px');
     header.css({'width':'calc(100% - 0px)','margin-left':'0px'});
 
     setTimeout(function() {
@@ -571,7 +571,7 @@ function modalOpen(modalId){
 
     modal.addClass('active');
 
-    body.css({'overflow':'hidden','padding-right':getScrollbarWidth()+'px'});
+    body.addClass('body-hidden').css('padding-right',getScrollbarWidth()+'px');
 
     if(window.innerWidth < 767.98){
         header.css({'width':'calc(100% - '+getScrollbarWidth()+'px)', 'margin-left':'auto'});
@@ -618,7 +618,7 @@ function closeModal(modalId){
 
     setTimeout(function() {
         modal.removeClass('active');
-        body.css({'overflow':'visible','padding-right':'0px'});
+        body.removeClass('body-hidden').css('padding-right','0px');
         if(window.innerWidth < 767.98){
             header.css({'width':'calc(100% - 0px)','margin-left':'0px'});
         }

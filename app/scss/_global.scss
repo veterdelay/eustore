@@ -25,6 +25,9 @@ body{
     line-height:1;
     color:$mainColor;
     min-height: 100vh;
+    &.body-hidden{
+        overflow: hidden;
+    }
 }
 
 body{
