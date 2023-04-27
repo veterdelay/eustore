@@ -204,6 +204,46 @@ function burgerCatalogStatus(){
 $( '.burger-open-catalog' ).click( burgerCatalogStatus );
 $( '.burger-close-catalog' ).click( burgerCatalogStatus );
 
+//hideburgerOrResize
+
+
+$( window ).resize(function() {
+
+    let headerWrapper = $('.header');
+    let burger = $('.burger');
+    let burgerWrapper = $('.burger-wrapper');
+    let background = $('.burger-open-background');
+    let body = $('body');
+    let header = $('.sticky-header-smartphone');
+
+    if(headerWrapper.hasClass('header-catalog-open')){
+        if(window.innerWidth > 1199.98){
+            burgerWrapper.removeClass('burger-wrapper-open');
+            background.removeClass('burger-open-background-open');
+            body.css({'overflow':'visible','padding-right':'0px'});
+            header.css({'width':'calc(100% - 0px)','margin-left':'0px'});
+            burger.removeClass('burger-open');
+        }else{
+            burger.addClass('burger-open');
+            burgerWrapper.addClass('burger-wrapper-open');
+            background.addClass('burger-open-background-open');
+            body.css({'overflow':'hidden','padding-right':getScrollbarWidth()+'px'});
+            header.css({'width':'calc(100% - '+getScrollbarWidth()+'px)', 'margin-left':'auto'});
+        }
+    }
+
+    if(burger.hasClass('burger-open')){
+        if(window.innerWidth > 1199.98){
+            burgerWrapper.removeClass('burger-wrapper-open');
+            background.removeClass('burger-open-background-open');
+            body.css({'overflow':'visible','padding-right':'0px'});
+            header.css({'width':'calc(100% - 0px)','margin-left':'0px'});
+            burger.removeClass('burger-open');
+        }
+    }
+
+});
+
 
 //Open header catalog effect
 
@@ -600,9 +640,9 @@ function checkHeaderStickySize(){
         if($(this).hasClass('active')){
             if(window.innerWidth < 767.98){
                 header.css({'width':'calc(100% - '+getScrollbarWidth()+'px)', 'margin-left':'auto'});
+            }else{
+                header.css({'width':'calc(100% - 0px)','margin-left':'0px'});
             }
-        }else{
-            header.css({'width':'calc(100% - 0px)','margin-left':'0px'});
         }
       });
 }
