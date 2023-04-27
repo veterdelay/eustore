@@ -19,6 +19,7 @@
     "gulp-uglify-es": "^3.0.0",
     "inputmask": "^5.0.8",
     "jquery": "^3.6.4",
+    "jquery-validation": "^1.19.5",
     "sass": "^1.60.0"
   }
 }

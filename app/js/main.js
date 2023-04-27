@@ -81,8 +81,6 @@ function catalogStatus(){
     let background = $('.catalog-open-background');
     let firstChild = catalogWrapper.find('.submenu-item').first();
 
-    checkHeight(catalogWrapper,'height',36);
-
     if(catalogWrapper.hasClass('catalog-open')){
             background.removeClass('background-open');
             catalogWrapperContainer.css('display','none');
@@ -94,6 +92,7 @@ function catalogStatus(){
     }else{
         catalogWrapper.removeClass('catalog-close').addClass('catalog-open');
         catalogButton.removeClass('catalog-close').addClass('catalog-open');
+        checkHeight(catalogWrapper,'height',36);
         if(firstChild.length > 0){
             firstChild.addClass('submenu-item-active');
             bodyWrapper.addClass('sub-catalog-open');
@@ -216,7 +215,7 @@ function getScrollbarWidth(){
 
 }
 
-//burger open
+/////////////////BURGER
 
 function burgerOpen(event){
 
@@ -241,8 +240,6 @@ function burgerOpen(event){
 }
 
 $('.header-open-burger').click( burgerOpen );
-
-//close burger
 
 function burgerClose(){
 
@@ -486,8 +483,12 @@ $('.open-cart-tablet-modal').click( function(){
     }
 });
 
-$('.open-cabinet-dialog').click( function(){
+$('.open-cabinet-modal').click( function(){
 	modalOpen('#cabinetmodal');
+});
+
+$('.open-call-modal').click( function(){
+	modalOpen('#callmodal');
 });
 
 //close modals
@@ -595,12 +596,93 @@ $('.product-quantity-value').focusout(function(){
     }
 });
 
+$( "#login" ).validate({
+    errorElement: "span",
+    errorClass: "invalid-input",
+    rules: {
+      email: {
+        required: true,
+        email: true
+      },
+      password: {
+        required: true
+      }
+    },
+    messages: {
+        email: {
+          required: "Поле обов`язкове для заповнення",
+          email: "Ваша електронна адреса має бути у форматі name@domain.com"
+        },
+        password: {
+            required: "Поле обов`язкове для заповнення"
+          }
+      }
+});
+
+$( "#call" ).validate({
+    errorElement: "span",
+    errorClass: "invalid-input",
+    rules: {
+      name: {
+        required: true
+      },
+      phone: {
+        required: true
+      }
+    },
+    messages: {
+        name: {
+          required: "Поле обов`язкове для заповнення"
+        },
+        phone: {
+            required: "Поле обов`язкове для заповнення"
+        }
+      }
+});
+
+
+
+//hide password
+
+$('.hide-password').click( function(){
+
+    let input = $(this).next();
+    let type;
+
+    if(input.attr('type') == "text"){
+        type = "password";
+    }else{
+        type = "text";
+    }
+
+    input.prop('type', type);
+
+});
+
+$(document).ready(function(){
+    $('.call-modal-phone').inputmask({
+        mask: "+38 (999) 999-99-99",
+        showMaskOnHover: false,
+        oncomplete: function(){ 
+            $('.call-submit-button').removeAttr('disabled');
+        }
+    }); 
+});
+
+$('.call-modal-phone').on('input keyup', function() {
+    let inputVal = $(this).val().replace(/[^0-9]/g, "");
+
+    if (inputVal.length < 12){
+        $('.call-submit-button').attr("disabled", "true");
+    }
+
+});
+
 ///////////////////////////////////////////////
 
 ///-----------------------------
 
 ////////////////////////////////////////////////////////////////FORM-CONTROL
-
 
 
 

@@ -101,11 +101,11 @@
                     </div>
                     <hr class="hr-classic">
                     <div class="cart-order-details">
-                        <div class="cart-one-click-order">
+                        <form class="cart-one-click-order" action="/">
                             <span class="one-click-order-title">Оформити в один клік</span>
-                            <input type="text" class="form-control one-click-order-number" name="phone" placeholder="Ваш телефон">
-                            <button class="button one-click-order-button" type="submit" disabled="true">Купити в один клік</button>
-                        </div>
+                                <div class="input-wrapper"><input type="text" class="form-control one-click-order-number" name="phone" placeholder="Ваш телефон"></div>
+                                <button class="button one-click-order-button" type="submit" disabled="true">Купити в один клік</button>
+                        </form>
                         <div class="cart-order-info">
                             <span class="order-info-title">Загальна сумма замовлення:</span>
                             <div class="order-info-price">
@@ -139,8 +139,55 @@
                 </div>
                 <a class="modal-close"><i class="modal-icon-close icon-close"></i></a>
             </div>
-            <div class="modal-body cart-modal-body">
-                login form
+            <div class="modal-body login-modal-body">
+                <div class="login-modal-wrapper">
+                    <form id="login" class="login-form" action="/">
+                        <div class="login-modal-form">
+                            <div class="input-wrapper"><input class="login-modal-mail form-control" name="email" type="email" placeholder="Ваш email"></div>
+                            <div class="password-form-group">
+                                <div class="input-wrapper">
+                                    <span class="hide-password"><i class="hide-password-icon icon-eye"></i></span>
+                                    <input class="login-modal-password form-control" name="password" type="password" placeholder="Пароль" autocomplete="off">
+                                </div>
+                            </div>
+                            <a class="login-small-link" href="#">Забули пароль?</a>
+                        </div>
+                        <button class="button login-submit-button" type="submit">Далі</button>
+                    </form>
+                    <div class="login-modal-registration">
+                        <span class="registration-title">Ще не маєте облікового запису?</span>
+                        <a class="login-small-link registration-link" href="">Реєстрація</a>
+                    </div>
+                    <span class="login-variable-title">або за допомогою</span>
+                    <a class="grey-button login-google-button" href="#"><img class="google-logo-img" src="/images/Google__G__Logo.svg"></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="callmodal" class="modal">
+    <div class="modal-body-background"></div>
+    <div class="modal-content">
+        <div class="modal-wrapper">
+            <div class="modal-header">
+                <div class="modal-title-body">
+                    <i class="modal-title-icon icon-call-over"></i>
+                    <span class="modal-title">Зворотний дзвінок</span>
+                </div>
+                <a class="modal-close"><i class="modal-icon-close icon-close"></i></a>
+            </div>
+            <div class="modal-body call-modal-body">
+                <div class="call-modal-wrapper">
+                    <span class="call-title">Вкажіть контактні дані, ми зв'яжемося з вами найближчим часом.</span>
+                    <form id="call" class="call-form" action="/">
+                        <div class="call-modal-form">
+                            <div class="input-wrapper"><input class="call-modal-name form-control" name="name" type="text" placeholder="Ваше ім'я"></div>
+                            <div class="input-wrapper"><input class="call-modal-phone form-control" name="phone" type="text" placeholder="Ваш телефон"></div>
+                        </div>
+                        <button class="button call-submit-button" type="submit" disabled>Передзвоніть мені</button>
+                    </form>
+                </div>
             </div>
         </div>
     </div>

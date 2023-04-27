@@ -87,6 +87,9 @@ a,button{
             }
             &:focus{
                 border: 1px solid $greenColor;
+                &::placeholder{
+                    opacity:0;
+                }
             }
         }
     }
@@ -140,6 +143,29 @@ hr{
         &:hover{
             box-shadow: none;
         }
+    }
+    @media(max-width:$breakpoint768){
+        font-size:18px;
+    }
+    @media(max-width:$breakpoint400){
+        font-size:16px;
+    }
+}
+
+.grey-button{
+    background: #E7E7E7;
+    color:$mainColor;
+    font-weight: 600;
+    max-width:100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+    transition: all 0.3s;
+    font-size: 20px;
+    text-align: center;
+    &:hover{
+        box-shadow: 0px 10px 50px rgba(211, 211, 211, 0.65);
     }
     @media(max-width:$breakpoint768){
         font-size:18px;
@@ -624,6 +650,7 @@ hr{
                     }
                     .one-click-order-number{
                         height:74px;
+                        width:382px;
                         &::placeholder{
                             text-align: center;
                         }
@@ -799,8 +826,158 @@ hr{
 
 #cabinetmodal{
 
-    
+    .login-modal-body{
+        display:flex;
+        justify-content: center;
+    }
 
+    .login-modal-wrapper{
+        display:flex;
+        flex-direction: column;
+        width: fit-content;
+        max-width: 100%;
+        .login-form{
+            display:flex;
+            flex-direction: column;
+            gap:20px;
+        }
+        .login-small-link{
+            font-weight: 500;
+            font-size: 15px;
+            color:$greenColor;
+            text-decoration: underline;
+            &:hover{
+                text-decoration: none;
+            }
+        }
+        .login-modal-form{
+            display:flex;
+            flex-direction: column;
+            gap:20px;
+            .login-modal-mail{
+                width:480px;
+                height:74px;
+            }
+            .password-form-group{
+                position: relative;
+                .login-modal-password{
+                    width:480px;
+                    height:74px;
+                }
+                .hide-password{
+                    height:74px;
+                    width:auto;
+                    padding-right:15px;
+                    position: absolute;
+                    right:0;
+                    top:0;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    cursor: pointer;
+                    .hide-password-icon{
+                        font-size:20px;
+                        &:before{
+                            color:#939393;
+                        }
+                    }
+                }
+            }
+            .login-small-link{
+                margin-top:-10px;
+            }
+        }
+        .login-submit-button{
+            width:480px;
+            height:74px;
+        }
+        .login-modal-registration{
+            display:flex;
+            gap:5px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top:10px;
+            .registration-title{
+                font-weight: 500;
+                font-size: 15px;
+                color: #939393;  
+            }
+            .registration-link{
+
+            }
+        }
+        .login-variable-title{
+            font-weight: 500;
+            font-size: 25px;
+            color: #939393;
+            margin:40px 0px;
+            text-align: center;  
+            @media(max-width:$breakpoint768){
+                margin:20px 0px;
+                font-size:20px;
+            }   
+        }
+        .login-google-button{
+            width:480px;
+            height:74px;
+            .google-logo-img{
+                height:38px;
+                width:38px;
+            }
+        }
+    }
+
+}
+
+#callmodal{
+    .call-modal-body{
+
+        display:flex;
+        justify-content: center;
+
+        .call-modal-wrapper{
+            display:flex;
+            flex-direction: column;
+            width: fit-content;
+            max-width: 100%;
+            gap:20px;
+            .call-title{
+                font-style: normal;
+                font-weight: 500;
+                font-size: 20px;
+                color: #939393;
+                width:480px;
+                max-width:100%;
+                text-align: center;
+                @media(max-width:$breakpoint768){
+                    font-size:18px;
+                }
+            }
+            .call-form{
+                display:flex;
+                flex-direction: column;
+                gap:20px;
+                .call-modal-form{
+                    display:flex;
+                    flex-direction: column;
+                    gap:20px;
+                    .call-modal-name{
+                        width:480px;
+                        height:74px;
+                    }
+                    .call-modal-phone{
+                        width:480px;
+                        height:74px;
+                    }
+                }
+                .call-submit-button{
+                    width:480px;
+                    height:74px;
+                }
+            }
+        }
+
+    }
 }
 
 
@@ -867,6 +1044,36 @@ hr{
 
 //inputs
 
+span.invalid-input{
+    position: absolute;
+    right: 15px;
+    bottom: 70px;
+    padding: 10px;
+    background: #fff;
+    border-radius: 5px;
+    color: #161616;
+    font-weight: 500;
+    font-size: 16px;
+    z-index: 25;
+    box-shadow: 0px 4px 20px rgba(0,0,0,.09);
+    &::after{
+        width: 0;
+        height: 0;
+        border-left: 10px solid transparent;
+        border-right: 10px solid transparent;
+        border-top: 10px solid #fff;
+        content: '';
+        position: absolute;
+        right: 20px;
+        bottom: -10px;
+    }
+}
+
+.input-wrapper{
+    position: relative;
+
+}
+
 .form-control{
     border: 1px solid #939393;
     border-radius: 5px;
@@ -881,12 +1088,18 @@ hr{
     }
     &:focus{
         border: 1px solid $greenColor;
+        &::placeholder{
+            opacity:0;
+        }
     }
     @media(max-width:$breakpoint768){
         font-size:18px;
     }
     @media(max-width:$breakpoint400){
         font-size:16px;
+    }
+    &.invalid-input{
+        border: 1px solid #E22E2E;
     }
 }
 
