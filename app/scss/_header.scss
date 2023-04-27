@@ -2,7 +2,6 @@
     display:flex;
     flex-direction: column;
     background:#1F1F1F;
-    z-index:40;
     transition: transform 0.3s;
     max-height:113px;
     &.sticky-header.sticky{
@@ -11,13 +10,18 @@
             top: -113px;
             width:100%;
             left:0;
-            transform: translate3d(0, 0px, 0);
             margin-bottom: 78px;
         }
     }
     @media(max-width:$breakpoint768){
         padding-top: 75px;
         margin-bottom: 50px;
+    }
+    &.header-catalog-close{
+        z-index:40;
+    }
+    &.header-catalog-open{
+        z-index:80;
     }
 }
 
@@ -394,7 +398,6 @@
     height:auto;
     display: flex;
     align-items: center;
-    z-index:30;
     .header-bottom-body{
         display:flex;
         align-items: center;
@@ -526,7 +529,18 @@
         }
 
         @media(max-width:$breakpoint1200){
-            display:none;
+            position: fixed;
+            top: 0;
+            left:0;
+            z-index:90;
+            height:100%;
+        }
+
+        .catalog-body{
+            @media(max-width:$breakpoint1200){
+               height:100%;
+               padding:0px;
+            }
         }
 
         .catalog-open-background{
@@ -586,6 +600,10 @@
                         }
                 }
 
+                @media(max-width:$breakpoint1200){
+                    max-height:100%;
+                    padding:20px 0px;
+                }
 
             }
 
@@ -608,12 +626,26 @@
                     border-radius: 20px;
                     border: 2px solid transparent;
                 }
+                @media(max-width:$breakpoint1200){
+                    flex-direction: column;
+                    gap: 20px;
+                    height: auto;
+                    width: auto;
+                    max-height: none;
+                }
             }
 
             .catalog-menu-sub-wrapper{
                 min-height: 100%;
                 height:auto;
             }
+
+            @media(max-width:$breakpoint1200){
+                min-height:100%;
+                border-radius:0px;
+                padding:0px;
+            }
+
         }
 
     }

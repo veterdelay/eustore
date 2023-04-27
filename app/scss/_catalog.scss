@@ -132,8 +132,10 @@
                 }
 
                 @media(max-width:$breakpoint1200){
-                    max-width: 553px;
-                    width: 553px;
+                    position: relative;
+                    left: 0;
+                    width: 100%;
+                    padding: 25px;
                 }
 
 
