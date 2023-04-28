@@ -381,6 +381,7 @@ function burgerClose(){
 }
 
 $('.burger-open-background').click( burgerClose );
+$('.burger-close-button').click( burgerClose );
 
 ///////////////////////////////////////////////
 
