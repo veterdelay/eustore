@@ -100,6 +100,14 @@
             flex-shrink: 0;
             img{
                 max-height:56px;
+                @media(max-width:419.98px){
+                    max-height:none !important;
+                    max-width: none;
+                    height: 45px;
+                    width: auto;
+                    position: relative;
+                    left: 4px;
+                }
             }
             @media(max-width:$breakpoint1200){
                 margin: auto;
@@ -113,6 +121,14 @@
                 img{
                     max-height:40px;
                 }
+            }
+            @media(max-width:419.98px){
+                width: 50px;
+                overflow: hidden;
+                height: 50px;
+                display: flex;
+                align-items: center;
+                justify-content: flex-start;
             }
         }
         .header-body-menu{
@@ -137,6 +153,9 @@
         .hide-search{
             cursor: pointer;
             position: relative;
+            width: 100%;
+            display: flex;
+            justify-content: flex-end;
             .icon-search-over{
                 z-index: 15;
                 position: relative;
@@ -161,6 +180,7 @@
                         background: #f9f9f9;
                         color:$mainColor;
                         border: none;
+                        max-width: none;
                         &::placeholder{
                             opacity:0;
                             color: $mainColor;
@@ -182,7 +202,7 @@
                     }
                 }
                 .hide-search-wrapper{
-                    width: 500px;
+                    width: 100%;
                     opacity:1;
                     .search-body-wrapper{
                         .search-body-input{
@@ -214,7 +234,8 @@
                 display:none;
             }
             @media(max-width:$breakpoint768){
-                display:none;
+                margin-right:10px;
+                bottom:1px;
             }
             &:hover{
                 .icon-search-over{
