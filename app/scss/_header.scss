@@ -156,6 +156,8 @@
             width: 100%;
             display: flex;
             justify-content: flex-end;
+            pointer-events: none;
+            margin-left: 50px;
             .icon-search-over{
                 z-index: 15;
                 position: relative;
@@ -189,6 +191,7 @@
                 }
             }
             &.active{
+                pointer-events: all;
                 .icon-search-over{
                     background: #06d679;
                     padding: 0px 8px;
@@ -226,6 +229,7 @@
             }
             .icon-search-over{
                 font-size:29px;
+                pointer-events: all;
                 &::before{
                     transition: all 0.3s;
                 }
@@ -234,7 +238,7 @@
                 display:none;
             }
             @media(max-width:$breakpoint768){
-                margin-right:10px;
+                margin-right:20px;
                 bottom:1px;
             }
             &:hover{

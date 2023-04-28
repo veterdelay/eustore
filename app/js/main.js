@@ -504,9 +504,9 @@ function closeInfoWindowElement(ev,parent,activeClass,buttonClass){
 
 }
 
-function closeElementsIfScroll(){
+function closeElementsIfScroll(doesntElement){
     
-    let element = $('.hide-on-scroll');
+    let element = $('.hide-on-scroll:not('+doesntElement+')');
 
     if(element.hasClass('infowindow')){
 
@@ -542,11 +542,11 @@ $(document).click( function(e){
 });
 
 $( window ).scroll(function() {
-    closeElementsIfScroll();
+    closeElementsIfScroll('.hide-search');
 });
 
 $( window ).resize(function() {
-    closeElementsIfScroll();
+    closeElementsIfScroll('.hide-search');
 });
 
 ///////////////////////////////////////////////
