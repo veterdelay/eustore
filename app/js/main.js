@@ -611,17 +611,18 @@ function closeModal(modalId){
     let modalBackground = modal.find('.modal-body-background');
     let body = $('body');
     let header = $('.sticky-header-smartphone');
+    let burger = $('.burger');
 
     modalBackground.removeClass('active');
     modalWrapper.removeClass('active');
 
-    
-
     setTimeout(function() {
         modal.removeClass('active');
-        body.removeClass('body-hidden').css('padding-right','0px');
-        if(window.innerWidth < 767.98){
-            header.css({'width':'calc(100% - 0px)','margin-left':'0px'});
+        if(!burger.hasClass('burger-open')){
+            body.removeClass('body-hidden').css('padding-right','0px');
+            if(window.innerWidth < 767.98){
+                header.css({'width':'calc(100% - 0px)','margin-left':'0px'});
+            }
         }
     }, 300);
 

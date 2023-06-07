@@ -42,6 +42,9 @@
                     margin-right:20px;
                     font-size:22px;
                 }
+                @media(max-width:$breakpoint1200){
+                    padding: 13px 50px 13px 15px;  
+                }
             }
             &:hover{
                 background: rgba(226, 226, 226, 0.44);
@@ -60,6 +63,9 @@
                         right: 18px;
                         position: absolute;
                         transition: 0.3s all;
+                        @media(max-width:$breakpoint1200){
+                            right:15px;
+                        }
                     }
                 }
                 @media(min-width:$breakpoint1200){
